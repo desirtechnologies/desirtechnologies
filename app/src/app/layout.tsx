@@ -76,9 +76,9 @@ export const metadata: Metadata = {
     "AI documentation",
     "code examples",
   ],
-  authors: [{ name: "TechDocs Team" }],
-  creator: "TechDocs Team",
-  publisher: "TechDocs",
+  authors: [{ name: "Jeffrey Desir" }],
+  creator: "Jeffrey Desir",
+  publisher: "Desir Technology",
   formatDetection: {
     email: false,
     address: false,
