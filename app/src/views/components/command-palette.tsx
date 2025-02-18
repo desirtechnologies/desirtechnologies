@@ -52,7 +52,7 @@ export function CommandPalette() {
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
-      <CommandDialog open={open} onOpenChange={setOpen} commandRef={commandRef}>
+      <CommandDialog open={open} onOpenChange={setOpen} >
         <CommandInput placeholder="Type a command or search..." value={search} onValueChange={setSearch} />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
