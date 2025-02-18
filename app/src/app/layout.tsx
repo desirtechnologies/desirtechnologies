@@ -22,8 +22,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "TechDocs - Advanced Technical Documentation Platform",
-    template: "%s | TechDocs",
+    default: "Desir Technology",
+    template: "%s | Desir Technology",
   },
   description: "Next-generation technical documentation platform with AI-powered features",
   openGraph: {
@@ -98,7 +98,12 @@ export default function RootLayout({
           <ParticleEffect />
           <div className="relative flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1">
+              
+            <div className="flex flex-col">
+            {children}
+     </div>
+    </main>
             <Footer />
           </div>
           <CommandPalette />

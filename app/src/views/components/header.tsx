@@ -72,6 +72,8 @@ const quickLinks = [
 ]
 
 export function Header() {
+
+
   const pathname = usePathname()
   const { scrollY } = useScroll()
   const backgroundColor = useTransform(scrollY, [0, 50], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.9)"])
@@ -99,8 +101,8 @@ export function Header() {
             >
               <Terminal className="h-6 w-6 text-primary" />
             </motion.div>
-            <motion.span className="hidden font-bold sm:inline-block" whileHover={{ scale: 1.05 }}>
-              TechDocs
+            <motion.span className="hidden font-bold sm:inline-flex" whileHover={{ scale: 1.05 }}>
+              Desir Technology
             </motion.span>
             <Badge variant="secondary" className="hidden lg:inline-flex">
               <Sparkles className="mr-1 h-3 w-3" />

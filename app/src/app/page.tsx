@@ -11,9 +11,11 @@ import { TeamSection } from "@/views/components/sections/team"
 import { TestimonialsSection } from "@/views/components/sections/testimonials"
 import { IntegrationsSection } from "@/views/components/sections/integrations"
 
-export default function Home() {
+
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col">
+    <>
       <HeroSection />
       <StatsSection />
       <FeaturesSection />
@@ -26,7 +28,7 @@ export default function Home() {
       <TestimonialsSection />
       <TeamSection />
       <NewsletterSection />
-    </div>
+    </>
   )
 }
 
