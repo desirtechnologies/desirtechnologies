@@ -159,7 +159,7 @@ const defaultProjectData = {
   },
 }
 
-export default function ProjectPage() {
+export default function ProjectsClient() {
   const params = useParams()
   const router = useRouter()
   const categoryId = params?.category as string

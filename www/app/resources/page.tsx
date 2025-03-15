@@ -11,8 +11,6 @@ export const metadata: Metadata = {
 
 export default async function ResourcesPage() {
   try {
-    const resources = await getResources()
-    const categories = await getResourceCategories()
 
     return (
       <div className="container py-8 space-y-12">
@@ -23,13 +21,10 @@ export default async function ResourcesPage() {
           </p>
         </div>
 
-        <ResourceFeatured resources={resources} />
-
-        <ResourceCategories categories={categories} />
+     
 
         <div className="space-y-6">
           <h2 className="text-2xl font-bold">All Resources</h2>
-          <ResourceGrid resources={resources} />
         </div>
       </div>
     )
