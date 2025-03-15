@@ -1,6 +1,5 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
 import BlogPreview from "@/components/BlogPreview"
 import AboutSection from "@/components/AboutSection"
 import MatrixParticles from "@/components/MatrixParticles"
@@ -20,10 +19,6 @@ import { ResourcesSectionHome } from "@/components/resources/ResourcesSectionHom
 
 export default function HomePage() {
 
-
-  const [mounted, setMounted] = useState(false)
-
-  // Terminal commands for the hero section
   const terminalCommands = [
     "$ whoami",
     "desir-technologies",
@@ -43,13 +38,6 @@ export default function HomePage() {
     "Initializing new project...",
     "Ready to build something amazing!",
   ]
-
-  // Ensure theme is applied after hydration to avoid mismatch
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) return null
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/80 dark:from-background dark:to-background/90 transition-colors duration-300 relative">

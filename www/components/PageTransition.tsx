@@ -8,12 +8,11 @@ interface PageTransitionProps {
 }
 
 export default function PageTransition({ children }: PageTransitionProps) {
-  // macOS-like transition animation
   return (
     <motion.div
       initial={{
         opacity: 0,
-        scale: 0.98,
+        scale: 0.93,
         filter: "blur(8px)",
       }}
       animate={{

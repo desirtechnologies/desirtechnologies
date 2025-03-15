@@ -53,7 +53,6 @@ export default function ProjectsPage() {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <div className="min-h-screen bg-gradient-to-b from-background to-background/80 dark:from-background dark:to-background/90 transition-colors duration-300 binary-bg">
-        <TopNav />
         <MatrixParticles />
 
         <PageTransition>
@@ -87,8 +86,7 @@ export default function ProjectsPage() {
             <ProjectCategoriesGrid />
           </section>
 
-          <Footer />
-          <BottomNav />
+        
         </PageTransition>
       </div>
     </ThemeProvider>
