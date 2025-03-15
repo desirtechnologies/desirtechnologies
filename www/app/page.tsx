@@ -16,7 +16,11 @@ import ResourcesSection from "@/components/ResourcesSection"
 import ITTriageSection from "@/components/ITTriageSection"
 import { ResourcesSectionHome } from "@/components/resources/ResourcesSectionHome"
 
-export default function Home() {
+
+
+export default function HomePage() {
+
+
   const [mounted, setMounted] = useState(false)
 
   // Terminal commands for the hero section
@@ -268,6 +272,8 @@ export default function Home() {
             </Button>
           </div>
         </section>
+
+
       </PageTransition>
     </div>
   )
