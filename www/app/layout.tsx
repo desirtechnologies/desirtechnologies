@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${vt323.variable} font-sans overflow-x-hidden`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="flex bg-white dark:bg-black min-h-screen flex-col overflow-x-hidden">
+          <div className="flex bg-white min-h-screen flex-col overflow-x-hidden">
             <TopNav />
             <main className="flex-1 pt-20 w-full max-w-full overflow-x-hidden">{children}</main>
             <Footer />

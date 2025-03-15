@@ -701,7 +701,7 @@ export default function Footer() {
               </p>
               <div className="hidden sm:block text-muted-foreground/30">|</div>
               <p className="text-xs text-muted-foreground/70">
-                Designed with <span className="text-red-400">♥</span> in San Francisco
+                Designed with <span className="text-red-400">♥</span> on Earth.
               </p>
             </div>
             <div className="flex items-center flex-wrap justify-center gap-6 text-sm text-muted-foreground">
