@@ -1,3 +1,4 @@
+"use client";
 
 import TerminalSection from "@/components/TerminalSection"
 import { Button } from "@/components/ui/button"

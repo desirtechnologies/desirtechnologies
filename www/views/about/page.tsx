@@ -25,8 +25,7 @@ export default function AboutPage() {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <div className="min-h-screen bg-gradient-to-b from-background to-background/80 dark:from-background dark:to-background/90 transition-colors duration-300">
-        <TopNav />
-
+        
         <PageTransition>
           {/* Hero Section */}
           <section className="container mx-auto px-4 pt-32 pb-16">
