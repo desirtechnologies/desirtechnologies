@@ -1,6 +1,7 @@
 import Hero from "@/includes/Hero/Hero"
 import DefaultFallback from "@/components/fallbacks/default"
 import RootLayout from "@/layouts/root/Root"
+
 import { defineRoutes } from "@/definitions"
 
 export const routes = defineRoutes({
@@ -15,11 +16,13 @@ export const routes = defineRoutes({
     }
   },
 
-  home: {
+  "/": {
     name: "index",
     parameters: [{ slug: [] }],
     path: "/",
     views: [{ component: Hero, props: null }, { component: Hero }, { component: Hero }],
+    data: {}, 
+    controllers: {}  
   },
 
 

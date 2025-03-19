@@ -8,8 +8,8 @@ const Router = routes("static")
 
 const metadata = defineMetadata(Router)
 
-const RootLayout = defineLayout(Router)
+const SiteLayout = defineLayout(Router)
 
 export { metadata }
 
-export default RootLayout 
+export default SiteLayout 

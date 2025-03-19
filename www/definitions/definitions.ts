@@ -4,15 +4,19 @@ import React from "react";
 export type ViewType = { component: React.FC<any>, props?: any }
 
 
-export const defineLayout = (parameters: any) => {
+export const defineLayout = function(parameters: any) {
     return parameters
 }
 
-export const defineMetadata = (parameters: any) => {
+export const defineMetadata = function(parameters: any) {
     return parameters
 }
 
-export function defineRoutes(parameters: any) {
+    export const definePageRouter = function(parameters: any) {
+        return parameters
+    }
+
+export const defineRoutes = function(parameters: any) {
     return function (type?: "static" | "dynamic" | "hybrid" | "edge") {
         switch (type) {
             case "static":
@@ -27,28 +31,38 @@ export function defineRoutes(parameters: any) {
     }
 }
 
-export function defineView(param: any) {
+export const defineLoaderPage = function(param: any) {
     return param
 }
-export const definePage = (views: ViewType[]) => {
 
+export const defineView = function(param: any) {
+    return param
+}
+
+
+export const defineErrorPageRouter = function(param: any) {
+    return param
+}
+
+export const definePage = function(views: ViewType[]) {
     const elements = views.map((view, index) => {
-
         return React.createElement(
             view.component,
             { key: index, ...view?.props }
         );
     });
 
-    return () => {
-
+    return function() {
         return React.createElement(
             React.Fragment,
             null,
             ...elements
         );
     };
+}
 
-};
-
-export const definePageParameters = async (parameters: any) => async () => { return parameters }
+export const definePageParameters = function(parameters: any) {
+    return async function() { 
+        return parameters 
+    }
+}

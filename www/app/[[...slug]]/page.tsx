@@ -1,11 +1,11 @@
 import { routes } from "@/routes";
 
-import { definePage, definePageParameters } from "@/definitions"
+import { definePageRouter, definePageParameters } from "@/definitions"
 
 const Router = routes("static") 
 
-export const generateStaticParams = await definePageParameters(Router)
+export const generateStaticParams = definePageParameters(Router)
 
-const IndexPage = definePage(Router)
+const PageRouter = definePageRouter(Router)
 
-export default IndexPage;
+export default PageRouter;

@@ -2,11 +2,11 @@
 
 import { routes } from "@/routes"
 
-import { defineView } from "@/definitions"
+import { defineErrorPageRouter } from "@/definitions"
 
 const Router = routes("static")
 
-const ErrorPage = defineView(Router)
+const ErrorPage = defineErrorPageRouter(Router)
 
 export default ErrorPage
 

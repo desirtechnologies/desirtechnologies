@@ -2,11 +2,11 @@
 
 import { routes } from "@/routes"
 
-import { defineView } from "@/definitions"
+import { defineLoaderPage } from "@/definitions"
 
 const Router = routes("static")
 
-const IndexLoader = defineView(Router)
+const IndexLoader = defineLoaderPage(Router)
 
 export default IndexLoader
 
