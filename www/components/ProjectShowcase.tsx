@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { FrameComponent } from "./FrameComponent"
-import { Switch } from "@/components/ui/switch"
-import { Badge } from "@/components/ui/badge"
+import { Switch } from "@/components/elements/switch"
+import { Badge } from "@/components/elements/badge"
 import { useMediaQuery } from "@/hooks/use-media-query"
 
 interface Project {

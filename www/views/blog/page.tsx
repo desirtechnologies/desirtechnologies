@@ -8,13 +8,13 @@ import SpeedDial from "@/components/SpeedDial"
 import Footer from "@/components/Footer"
 import PageTransition from "@/components/PageTransition"
 import { motion } from "framer-motion"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/elements/card"
+import { Badge } from "@/components/elements/badge"
 import { Calendar, Clock, Search } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Input } from "@/components/elements/input"
+import { Button } from "@/components/elements/button"
 
 interface BlogPost {
   id: number

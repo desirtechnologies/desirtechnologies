@@ -2,13 +2,13 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/elements/card"
+import { Button } from "@/components/elements/button"
 import { Check, HelpCircle } from "lucide-react"
 import Link from "next/link"
-import { Switch } from "@/components/ui/switch"
-import { Label } from "@/components/ui/label"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Switch } from "@/components/elements/switch"
+import { Label } from "@/components/elements/label"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/elements/tooltip"
 
 interface PricingPlan {
   id: string

@@ -1,8 +1,8 @@
 "use client"
 
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/elements/table"
 import { Check, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/elements/button"
 import Link from "next/link"
 
 interface PricingTableProps {

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/elements/card"
 import { Cpu, Bug, GitBranch, Puzzle, Users, Library, Play, Code } from "lucide-react"
 import type { ResourceFeature } from "@/lib/resources"
 

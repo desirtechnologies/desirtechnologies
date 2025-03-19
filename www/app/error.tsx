@@ -4,9 +4,9 @@ import { routes } from "@/routes"
 
 import { defineView } from "@/definitions"
 
-const Router = routes()
+const Router = routes("static")
 
-const ErrorPage = defineView(Router.application.loading)
+const ErrorPage = defineView(Router)
 
 export default ErrorPage
 

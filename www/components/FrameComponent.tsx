@@ -1,5 +1,5 @@
 "use client"
-import { Slider } from "@/components/ui/slider"
+import { Slider } from "@/components/elements/slider"
 import { useEffect, useRef } from "react"
 
 interface FrameComponentProps {

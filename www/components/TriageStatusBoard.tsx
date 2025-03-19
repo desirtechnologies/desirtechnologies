@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/elements/card"
+import { Badge } from "@/components/elements/badge"
 import { AlertTriangle, CheckCircle, Clock, RefreshCcw, UserCheck } from "lucide-react"
 
 interface IncidentType {

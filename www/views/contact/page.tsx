@@ -10,12 +10,12 @@ import SpeedDial from "@/components/SpeedDial"
 import PageTransition from "@/components/PageTransition"
 import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Send, MessageSquare, Clock } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Card, CardContent } from "@/components/elements/card"
+import { Input } from "@/components/elements/input"
+import { Textarea } from "@/components/elements/textarea"
+import { Button } from "@/components/elements/button"
+import { Label } from "@/components/elements/label"
+import { RadioGroup, RadioGroupItem } from "@/components/elements/radio-group"
 
 export default function ContactPage() {
   const [mounted, setMounted] = useState(false)

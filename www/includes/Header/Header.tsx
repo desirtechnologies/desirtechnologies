@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/elements/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import {
   NavigationMenu,
@@ -12,8 +12,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+} from "@/components/elements/navigation-menu"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/elements/sheet"
 import { Menu, X, Home, Briefcase, FileText, BookOpen, Code, User, Mail, Search } from "lucide-react"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { CommandSearch } from "@/components/CommandSearch"

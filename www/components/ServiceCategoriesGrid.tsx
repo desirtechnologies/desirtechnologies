@@ -5,8 +5,8 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/elements/card"
+import { Badge } from "@/components/elements/badge"
 import { ArrowRight, Code, Palette, Server, Database, Cpu, Cloud, Shield, BarChart } from "lucide-react"
 
 interface ServiceCategory {

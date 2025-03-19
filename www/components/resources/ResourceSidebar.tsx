@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { getResourceCategories, getFeaturedResources, getAllTags } from "@/lib/resources"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/elements/card"
+import { Badge } from "@/components/elements/badge"
 import { Folder, Tag, Star } from "lucide-react"
 
 export async function ResourceSidebar() {

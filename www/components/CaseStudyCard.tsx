@@ -1,9 +1,9 @@
 "use client"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/elements/card"
+import { Badge } from "@/components/elements/badge"
 import { ArrowRight, CheckCircle } from "lucide-react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/elements/button"
 import Image from "next/image"
 
 interface CaseStudy {

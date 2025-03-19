@@ -1,11 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/elements/card"
+import { Badge } from "@/components/elements/badge"
 import { AlertTriangle, CheckCircle, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/elements/button"
 
 interface TriageReport {
   id: string

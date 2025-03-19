@@ -4,11 +4,11 @@ import { defineLayout, defineMetadata } from "@/definitions";
 
 import "./globals.css"
 
-const Router = routes()
+const Router = routes("static")
 
-const metadata = defineMetadata(Router.application.metadata)
+const metadata = defineMetadata(Router)
 
-const RootLayout = defineLayout(Router.application.layout)
+const RootLayout = defineLayout(Router)
 
 export { metadata }
 

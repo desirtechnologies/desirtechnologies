@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/elements/badge"
 
 export default function IncidentPriorityMatrix() {
   const [hoveredCell, setHoveredCell] = useState<string | null>(null)

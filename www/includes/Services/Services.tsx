@@ -1,7 +1,7 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/elements/button"
+import { Card, CardContent } from "@/components/elements/card"
 import { motion } from "framer-motion"
 import { ArrowRight, BarChart, Code, Cpu, Database, Globe, Server, Shield, Zap } from "lucide-react"
 import Link from "next/link"

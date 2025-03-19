@@ -1,12 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/elements/card"
+import { Badge } from "@/components/elements/badge"
 import { FileText, Download, ExternalLink, Clock } from "lucide-react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/elements/button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/elements/tabs"
 
 interface Resource {
   id: string

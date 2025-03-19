@@ -8,19 +8,28 @@ export const defineLayout = (parameters: any) => {
     return parameters
 }
 
-export const defineMetadata = (parameters: any  ) => {
+export const defineMetadata = (parameters: any) => {
     return parameters
 }
 
 export function defineRoutes(parameters: any) {
-    return function() {
-     return parameters
+    return function (type?: "static" | "dynamic" | "hybrid" | "edge") {
+        switch (type) {
+            case "static":
+                return parameters
+            case "dynamic":
+                return parameters
+            case "hybrid":
+                return parameters
+            case "edge":
+                return parameters
+        }
     }
-   }
-   
+}
+
 export function defineView(param: any) {
     return param
-  }
+}
 export const definePage = (views: ViewType[]) => {
 
     const elements = views.map((view, index) => {

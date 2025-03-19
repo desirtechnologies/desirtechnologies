@@ -3,10 +3,10 @@
 import React from "react"
 
 import Link from "next/link"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/elements/accordion"
+import { Button } from "@/components/elements/button"
+import { Input } from "@/components/elements/input"
+import { Separator } from "@/components/elements/separator"
 import {
   Facebook,
   Twitter,

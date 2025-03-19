@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Input } from "@/components/elements/input"
+import { Button } from "@/components/elements/button"
 import { Search, Filter } from "lucide-react"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/elements/select"
 import { cn } from "@/lib/utils"
 import type { Resource } from "@/lib/resources"
 import { ResourceCard } from "./ResourceCard"

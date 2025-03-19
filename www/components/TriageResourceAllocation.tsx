@@ -4,9 +4,9 @@ import type React from "react"
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
+import { Card, CardContent } from "@/components/elements/card"
+import { Badge } from "@/components/elements/badge"
+import { Progress } from "@/components/elements/progress"
 import { Users, Server, Shield, Database, Code, Globe } from "lucide-react"
 
 interface ResourceType {

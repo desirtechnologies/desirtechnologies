@@ -5,8 +5,8 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Input } from "@/components/elements/input"
+import { Button } from "@/components/elements/button"
 import { Search, X } from "lucide-react"
 
 interface ResourceSearchProps {

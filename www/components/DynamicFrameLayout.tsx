@@ -3,9 +3,9 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { FrameComponent } from "./FrameComponent"
-import { Slider } from "@/components/ui/slider"
-import { Button } from "@/components/ui/button"
-import { Switch } from "@/components/ui/switch"
+import { Slider } from "@/components/elements/slider"
+import { Button } from "@/components/elements/button"
+import { Switch } from "@/components/elements/switch"
 import type React from "react"
 import { cn } from "@/lib/utils"
 

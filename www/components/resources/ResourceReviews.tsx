@@ -4,8 +4,8 @@ import type React from "react"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { Star, PlusCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/elements/button"
+import { Textarea } from "@/components/elements/textarea"
 import {
   Dialog,
   DialogContent,
@@ -14,12 +14,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
+} from "@/components/elements/dialog"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/elements/select"
+import { Input } from "@/components/elements/input"
 import type { ResourceReview } from "@/lib/resources"
-import { Card, CardContent } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Card, CardContent } from "@/components/elements/card"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/elements/avatar"
 
 interface ResourceReviewsProps {
   resourceId?: string

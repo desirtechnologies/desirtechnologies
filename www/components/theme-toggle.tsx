@@ -1,10 +1,10 @@
 "use client"
 
 import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/elements/button"
 import { Moon, Sun } from "lucide-react"
 import { useEffect, useState } from "react"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/elements/tooltip"
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()

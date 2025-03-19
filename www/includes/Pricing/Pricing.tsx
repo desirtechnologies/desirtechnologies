@@ -15,8 +15,8 @@ import {
   BarChart,
   Cpu,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/elements/button";
+import { Card, CardContent } from "@/components/elements/card";
 import Link from "next/link";
 import PricingSection from "@/components/PricingSection";
 import ResourcesSection from "@/components/ResourcesSection";

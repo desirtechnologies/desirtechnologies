@@ -17,7 +17,7 @@ import {
   Rss,
   Share2,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/elements/button"
 import Link from "next/link"
 
 interface SpeedDialAction {

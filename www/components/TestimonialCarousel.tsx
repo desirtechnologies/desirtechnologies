@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/elements/card"
+import { Button } from "@/components/elements/button"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import Image from "next/image"
 

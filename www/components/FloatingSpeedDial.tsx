@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/elements/button"
 import { Home, Code, Briefcase, BookOpen, FileText, User, Mail, ChevronUp, Sparkles } from "lucide-react"
 
 type SpeedDialAction = {

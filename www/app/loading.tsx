@@ -4,11 +4,11 @@ import { routes } from "@/routes"
 
 import { defineView } from "@/definitions"
 
-const Router = routes()
+const Router = routes("static")
 
-const IndexLoading = defineView(Router.application.loading)
+const IndexLoader = defineView(Router)
 
-export default IndexLoading
+export default IndexLoader
 
 
 

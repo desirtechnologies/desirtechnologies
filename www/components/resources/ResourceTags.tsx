@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/elements/badge"
 import type { ResourceTag } from "@/lib/resources"
 
 interface ResourceTagsProps {

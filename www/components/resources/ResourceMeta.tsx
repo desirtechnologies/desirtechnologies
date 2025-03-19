@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/elements/badge"
 import { Calendar, Link2, ExternalLink } from "lucide-react"
 import type { Resource } from "@/lib/resources"
 

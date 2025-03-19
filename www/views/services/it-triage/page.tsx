@@ -20,10 +20,10 @@ import {
   Activity,
   FileText,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Progress } from "@/components/ui/progress"
+import { Button } from "@/components/elements/button"
+import { Card, CardContent } from "@/components/elements/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/elements/tabs"
+import { Progress } from "@/components/elements/progress"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
 import TriageResourceAllocation from "@/components/TriageResourceAllocation"
 import IncidentPriorityMatrix from "@/components/IncidentPriorityMatrix"

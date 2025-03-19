@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/elements/button"
 import { ExternalLink, Share2, Bookmark, Heart } from "lucide-react"
 import type { Resource } from "@/lib/resources"
 

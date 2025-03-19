@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/elements/button"
 import { ChevronRight } from "lucide-react"
 import { ResourceFeatured } from "./ResourceFeatured"
 
