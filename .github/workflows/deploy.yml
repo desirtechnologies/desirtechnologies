@@ -32,13 +32,13 @@ jobs:
         run: "deno install"
 
       - name: Build step
-        run: "deno task build"
+        run: "deno task build && cd www"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "desirtechnologies"
-          entrypoint: "www"
+          entrypoint: "www/main.ts"
           root: "www"
           
           
