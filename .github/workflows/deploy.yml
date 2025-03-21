@@ -37,7 +37,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "jeffreydesi-desirtechno-62"
+          project: "desirtechnologies"
           entrypoint: "www"
           root: "www"
           
