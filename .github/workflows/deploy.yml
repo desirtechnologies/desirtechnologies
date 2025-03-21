@@ -38,7 +38,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "desirtechnologies"
-          entrypoint: "main.ts"
-          root: "_fresh"
+          entrypoint: "www/main.ts"
+          root: ""
           
           
