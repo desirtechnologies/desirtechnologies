@@ -1,10 +1,17 @@
 import { defineLayout } from "$fresh/server.ts";
+import {Header, Footer} from "@includes/index.ts"
 
-export default defineLayout(async (req, ctx) => {
+
+const ApplicationLayout = defineLayout(async (req, ctx) => {
 
   return (
     <div class="layout">
+      <Header />
       <ctx.Component />
+      <Footer />
     </div>
   );
 });
+
+
+export default ApplicationLayout;

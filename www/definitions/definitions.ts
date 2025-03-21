@@ -2,6 +2,10 @@
 import { h, Fragment } from "preact";
 import { defineLayout  } from "$fresh/server.ts";
 
+
+export const defineAsynchronousLayout = defineLayout
+
+
 export type ViewType = { component: any, props?: any }
 
 

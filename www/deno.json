@@ -30,11 +30,26 @@
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
     "$std/": "https://deno.land/std@0.216.0/",
-    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.6.3/"
+    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.6.3/",
+    "@routes/": "./routes/",
+    "@includes/": "./includes/",
+    "@components/": "./components/",
+    "@utils/": "./utils/",
+    "@hooks/": "./hooks/",
+    "@styles/": "./styles/",
+    "@assets/": "./static/",
+    "@types/": "./types/",
+    "@config/": "./config/",
+    "@lib/": "./lib/",
+    "@/*": "./"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "preact",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "nodeModulesDir": "auto",
   "deploy": {
