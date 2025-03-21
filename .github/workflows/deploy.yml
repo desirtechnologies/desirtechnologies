@@ -39,6 +39,6 @@ jobs:
         with:
           project: "desirtechnologies"
           entrypoint: "www/main.ts"
-          root: "www"
+          root: "_fresh"
           
           
