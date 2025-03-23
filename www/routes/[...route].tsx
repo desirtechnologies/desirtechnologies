@@ -1,18 +1,13 @@
-import { useSignal } from "@preact/signals";
-import Counter from "../islands/Counter.tsx";
+import { Hero } from "@components/index.ts";
 import { PageProps } from "$fresh/server.ts";
 
 export default function Home({ params }: PageProps) {
+  const { route } = params;
 
-  const { route } = params; 
-
-  const count = useSignal(3);
-
-  
   return (
-    
-  <>
-  <h1>It Works!</h1>
-  </>
+    <>
+    <Hero />
+      <h1>Route: {route} works!</h1>
+    </>
   );
 }

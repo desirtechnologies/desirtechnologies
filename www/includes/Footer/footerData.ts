@@ -1,16 +1,92 @@
-// This will contain all the static data
-export const socialLinks = [
-  { icon: "twitter", href: "https://twitter.com", label: "Twitter" },
-  { icon: "linkedin", href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: "github", href: "https://github.com", label: "GitHub" },
-  { icon: "instagram", href: "https://instagram.com", label: "Instagram" },
-  { icon: "facebook", href: "https://facebook.com", label: "Facebook" },
+interface LinkItem {
+  name: string;
+  href: string;
+  icon?: string;
+  isNew?: boolean;
+}
+
+export const serviceLinks: LinkItem[] = [
+  {
+    name: "Web Development",
+    href: "/services/web-development",
+    icon: "code",
+  },
+  {
+    name: "Mobile Apps",
+    href: "/services/mobile-apps",
+    icon: "globe",
+  },
+  {
+    name: "Cloud Solutions",
+    href: "/services/cloud",
+    icon: "globe",
+    isNew: true,
+  },
 ];
 
-export const serviceLinks = [
-  { icon: "globe", label: "Web Development", href: "/services/web-development" },
-  { icon: "smartphone", label: "Mobile Apps", href: "/services/mobile-apps" },
-  // ... rest of the service links
+export const resourceLinks: LinkItem[] = [
+  {
+    name: "Documentation",
+    href: "/docs",
+    icon: "fileText",
+  },
+  {
+    name: "API Reference",
+    href: "/api",
+    icon: "code",
+  },
+  {
+    name: "Tutorials",
+    href: "/tutorials",
+    icon: "fileText",
+    isNew: true,
+  },
 ];
 
-// ... rest of the data 
+export const quickLinks: LinkItem[] = [
+  {
+    name: "About Us",
+    href: "/about",
+    icon: "globe",
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+    icon: "globe",
+  },
+  {
+    name: "Blog",
+    href: "/blog",
+    icon: "fileText",
+  },
+];
+
+interface BlogPost {
+  title: string;
+  description: string;
+  href: string;
+}
+
+interface NewService {
+  title: string;
+  description: string;
+  href: string;
+}
+
+interface LatestUpdates {
+  blogPost: BlogPost;
+  newService: NewService;
+}
+
+export const latestUpdates: LatestUpdates = {
+  blogPost: {
+    title: "Introducing Our New Blog",
+    description: "Stay up to date with our latest news, tutorials, and insights.",
+    href: "/blog/introducing",
+  },
+  newService: {
+    title: "Cloud Solutions",
+    description: "Scale your applications with our new cloud infrastructure services.",
+    href: "/services/cloud",
+  },
+}; 

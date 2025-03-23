@@ -11,26 +11,20 @@
   },
   "lint": {
     "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ]
+      "tags": ["fresh", "recommended"]
     }
   },
-  "exclude": [
-    "**/_fresh/*"
-  ],
+  "exclude": ["**/_fresh/*"],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
-    "preact": "https://esm.sh/preact@10.22.0",
-    "preact/": "https://esm.sh/preact@10.22.0/",
+    "preact": "https://esm.sh/preact@10.25.4",
+    "preact/": "https://esm.sh/preact@10.25.4/",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
     "tailwindcss": "npm:tailwindcss@3.4.1",
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
     "$std/": "https://deno.land/std@0.216.0/",
-    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.6.3/",
     "@routes/": "./routes/",
     "@includes/": "./includes/",
     "@components/": "./components/",
@@ -41,22 +35,17 @@
     "@types/": "./types/",
     "@config/": "./config/",
     "@lib/": "./lib/",
-    "@/*": "./"
+    "@/*": "./*",
+    "lucide-preact": "https://esm.sh/lucide-preact@0.294.0"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "jsxImportSource": "preact"
   },
   "nodeModulesDir": "auto",
   "deploy": {
     "project": "77621a7d-5546-46f4-94a1-63d119e6ce53",
-    "exclude": [
-      "**/node_modules"
-    ],
+    "exclude": ["**/node_modules"],
     "include": [],
     "entrypoint": "main.ts"
   }
