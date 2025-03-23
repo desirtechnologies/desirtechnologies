@@ -17,7 +17,9 @@
   "exclude": ["**/_fresh/*"],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
-    "preact": "https://esm.sh/preact@10.25.4",
+    "@tsparticles/preact": "npm:@tsparticles/preact@^3.0.0",
+    "preact": "npm:preact@^10.26.4",
+    "preact-layout": "npm:preact-layout@^1.0.2",
     "preact/": "https://esm.sh/preact@10.25.4/",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
