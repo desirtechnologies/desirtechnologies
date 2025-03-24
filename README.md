@@ -1,4 +1,5 @@
 <h1 align ="center">🚀 Desir Technology</h1>
+<p align="center">Knowledge determines destiny. </p>
 
 <div align="center">
 
@@ -6,14 +7,16 @@
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/desirtechnology)
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/desirtechnology)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/desirtechnology)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/desirtechnology)
+
 
 </div>
 
 
-> Knowledge determines destiny. 
+> 
 
 
-<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnM2bGcwMzR1c3U1b2Y4dm0xdXhlbm5mZDcwZWxvbmdoc3Y0MDZqeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/quEsMOrr3hmQ8/giphy.gif" height="100%" width="100%"/>
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTRpcjJtcmNjajNic2JneGM3cWFpazZiMzZta3N5MHh5NzdnMGc5NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7WIB00yXujVt4WEo/giphy.gif" height="100%" width="100%"/>
 
 
 ## 🌟 About Me
@@ -92,10 +95,6 @@ Ready to transform your business with custom software solutions? Here's how to g
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-
-<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTRpcjJtcmNjajNic2JneGM3cWFpazZiMzZta3N5MHh5NzdnMGc5NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7WIB00yXujVt4WEo/giphy.gif" height="100%" width="100%"/>
-
 
 <div align="center">
   Made with ❤️ by Desir Technology
