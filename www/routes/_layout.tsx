@@ -1,17 +1,9 @@
+import { type PageProps } from "$fresh/server.ts";
 
-import {Header, Footer} from "@includes/index.ts"
-
-
-const ApplicationLayout = defineLayout(async (req, ctx) => {
-
+export default function Layout({ Component }: PageProps) {
   return (
-    <div class="layout">
-      <Header />
-      <ctx.Component />
-      <Footer />
-    </div>
+    <main class="layout-content">
+    <Component />
+  </main>
   );
-});
-
-
-export default ApplicationLayout;
+}
