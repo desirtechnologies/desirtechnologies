@@ -1,8 +1,8 @@
 
-<h1 align="center">🚀✨ Desir Technology ✨🚀</h1>
+<h1 align="left">🚀✨ Desir Technology ✨🚀</h1>
 <p align="center">✨ Knowledge shapes destiny ✨</p>
 
-<div align="center">
+<div align="right">
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/desirtechnology)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/desirtechnology)
@@ -18,7 +18,7 @@
 
 </div>
 
-<div align="center" style="background-color: #000000; color: #008000; padding: 10px; border-radius: 10px; margin: 20px 0;">
+<div align="left" style="background-color: #000000; color: #008000; padding: 10px; border-radius: 10px; margin: 20px 0;">
   <p>💫 Turning bold ideas into digital magic 💫</p>
 </div>
 
@@ -26,15 +26,15 @@
   <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2J5cmUzaHp2cG92ZDRjcHM2d3o0Zjg0ZDdrbGVwNDdtejB5YWtnciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XO8RMtRaK73isIt0i2/giphy.gif" height="100%" width="100%"/>
 </div>
 
-<h2 align="center" style="color: #008000;">🌟 About Me 🌟</h2>
+<h2 align="right" style="color: #008000;">🌟 About Me 🌟</h2>
 
-<p align="center">
-  Hey there! I'm Jeffrey Desir! ✨ At Desir Technologies, we craft amazing software that transforms businesses. We blend creativity, tech smarts, and business know-how to build tools people love!
+<p align="right">
+  Hey there! I'm Jeffrey Desir! ✨ At Desir Technologies, I craft amazing software that transforms businesses. I blend creativity, tech smarts, and business know-how to build tools people love!
 </p>
 
-<h2 align="center" style="color: #008000;">💡 What We Do 💡</h2>
+<h2 align="left" style="color: #008000;">💡 What I Do 💡</h2>
 
-<div align="center">
+<div align="left">
   <p>🛠️ Custom Software That Rocks</p>
   <p>🌐 Stunning Web & Mobile Apps</p>
   <p>🤖 Smart AI Solutions</p>
@@ -43,11 +43,11 @@
   <p>☁️ Powerful Cloud Infrastructure</p>
 </div>
 
-<h2 align="center" style="color: #008000;">🎯 Our Approach 🎯</h2>
+<h2 align="center" style="color: #008000;">🎯 My Approach 🎯</h2>
 
 <div align="center" style="background-color: #FFFFFF; color: #000000; padding: 15px; border-left: 5px solid #008000; margin: 20px 0;">
   <h3>1. 📋 Discovery & Planning</h3>
-  <p>We get what makes your business tick</p>
+  <p>I get what makes your business tick</p>
   <p>Smart planning that works</p>
   <p>Clear roadmaps to success</p>
   
@@ -58,21 +58,21 @@
   
   <h3>3. 🚀 Deployment & Support</h3>
   <p>Smooth, hassle-free launches</p>
-  <p>Always there when you need us</p>
+  <p>Always there when you need me</p>
   <p>Regular updates to keep you ahead</p>
 </div>
 
-<h2 align="center" style="color: #008000;">🚀 Let's Get Started! 🚀</h2>
+<h2 align="right" style="color: #008000;">🚀 Let's Get Started! 🚀</h2>
 
-<p align="center">Ready to supercharge your business? Here's how:</p>
+<p align="right">Ready to supercharge your business? Here's how:</p>
 
-<div align="center" style="background-color: #000000; color: #FFFFFF; padding: 15px; border-radius: 10px; margin: 20px 0;">
+<div align="right" style="background-color: #000000; color: #FFFFFF; padding: 15px; border-radius: 10px; margin: 20px 0;">
   <h3 style="color: #008000;">1. 📧 Say Hello!</h3>
-  <p>Drop us a line</p>
+  <p>Drop me a line</p>
   <p>Grab a free chat session</p>
   
   <h3 style="color: #008000;">2. 🔍 Discover Possibilities</h3>
-  <p>We'll dig into what you need</p>
+  <p>I'll dig into what you need</p>
   <p>Custom solutions just for you</p>
   
   <h3 style="color: #008000;">3. ⚙️ Watch the Magic Happen</h3>
@@ -81,15 +81,15 @@
   <p>Quality you can see</p>
 </div>
 
-<h2 align="center" style="color: #008000;">💪 Why Choose Us? 💪</h2>
+<h2 align="left" style="color: #008000;">💪 Why Choose Me? 💪</h2>
 
-<div align="center">
-  <p style="font-weight: bold; color: #008000;">✨ We deliver when you need... ✨</p>
+<div align="left">
+  <p style="font-weight: bold; color: #008000;">✨ I deliver when you need... ✨</p>
   
-  <p>👥 Tech wizards who speak human</p>
+  <p>👥 A tech wizard who speaks human</p>
   <p>💡 <strong>Fresh Ideas</strong> - Cutting-edge tech that works</p>
-  <p>🤝 <strong>Your Success = Our Success</strong> - We're in this together</p>
-  <p>⭐ <strong>Quality Obsessed</strong> - We don't do "good enough"</p>
+  <p>🤝 <strong>Your Success = My Success</strong> - I'm in this with you</p>
+  <p>⭐ <strong>Quality Obsessed</strong> - I don't do "good enough"</p>
   <p>📈 <strong>Future-Ready Solutions</strong> - Grow without growing pains</p>
 </div>
 
@@ -102,19 +102,19 @@
   <p>📍 USA</p>
 </div>
 
-<h2 align="center" style="color: #008000;">📝 Changelog 📝</h2>
+<h2 align="right" style="color: #008000;">📝 Changelog 📝</h2>
 
-<div align="center">
+<div align="right">
   <p>✨ v1.0.0 - Data-first architecture & dark mode support</p>
   <p>🔍 v0.1.d0 - First launch!</p>
 </div>
 
-<h2 align="center" style="color: #008000;">📄 License 📄</h2>
+<h2 align="left" style="color: #008000;">📄 License 📄</h2>
 
-<p align="center">MIT Licensed - see the <a href="LICENSE" style="color: #008000;">LICENSE</a> file for details.</p>
+<p align="left">MIT Licensed - see the <a href="LICENSE" style="color: #008000;">LICENSE</a> file for details.</p>
 
 <hr style="border: 1px solid #008000;">
 
 <div align="center" style="background-color: #000000; color: #008000; padding: 10px; border-radius: 10px;">
-  Made with ❤️ by Desir Technology ✨
+  Made with ❤️ by Jeffrey Desir ✨
 </div>
