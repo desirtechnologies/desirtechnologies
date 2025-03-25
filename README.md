@@ -1,8 +1,8 @@
 
-<h1 align="left">🚀✨ Desir Technology ✨🚀</h1>
-<p align="center">✨ Knowledge shapes destiny ✨</p>
+<h1 align="center">🚀✨ Desir Technology</h1>
+<p align="center">✨ Through understanding, Knowledge determines destiny.</p>
 
-<div align="right">
+<div align="center">
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/desirtechnology)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/desirtechnology)
@@ -19,7 +19,7 @@
 </div>
 
 <div align="left" style="background-color: #000000; color: #008000; padding: 10px; border-radius: 10px; margin: 20px 0;">
-  <p>💫 Turning bold ideas into digital magic 💫</p>
+  <p><i>Technomancer(n) - One who weaves. 💫</i></p>
 </div>
 
 <div align="center">
