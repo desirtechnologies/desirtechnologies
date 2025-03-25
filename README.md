@@ -18,7 +18,7 @@
 
 </div>
 
-<div align="left">
+<div align="center">
   <p><i>Technomancer(n) - One who weaves. 💫</i></p>
 </div>
 
@@ -43,26 +43,42 @@
   <p>☁️ Powerful Cloud Infrastructure</p>
 </div>
 
-<h2 align="center">🎯 My Approach 🎯</h2>
 
-<div align="center">
-  <h3>1. 📋 Discovery & Planning</h3>
-  <p>I get what makes your business tick</p>
-  <p>Smart planning that works</p>
-  <p>Clear roadmaps to success</p>
+<h2 align="left">🛠️ Technologies</h2>
+
+<div align="left">
   
-  <h3>2. 💻 Development & Testing</h3>
-  <p>Agile, flexible, and fast</p>
-  <p>Continuous quality checks</p>
-  <p>Performance that wows</p>
-  
-  <h3>3. 🚀 Deployment & Support</h3>
-  <p>Smooth, hassle-free launches</p>
-  <p>Always there when you need me</p>
-  <p>Regular updates to keep you ahead</p>
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+
 </div>
 
-<h2 align="right">🚀 Let's Get Started! 🚀</h2>
+<h2 align="center">🌐 Web Development</h2>
+
+<div align="center">
+
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)](https://vuejs.org/)
+
+</div>
+
+<h2 align="right">☁️ Cloud & DevOps</h2>
+
+<div align="right">
+
+[![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
+[![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)](https://www.terraform.io/)
+
+</div>
 
 <p align="right">Ready to supercharge your business? Here's how:</p>
 
@@ -102,55 +118,19 @@
   <p>📍 USA</p>
 </div>
 
-<h2 align="right">📝 Changelog 📝</h2>
+<h2 align="right">📝 Changelog </h2>
 
 <div align="right">
   <p>✨ v1.0.0 - Data-first architecture & dark mode support</p>
   <p>🔍 v0.1.d0 - First launch!</p>
 </div>
 
-<h2 align="left">📄 License 📄</h2>
+<h2 align="left">📄 License </h2>
 
 <p align="left">MIT Licensed - see the <a href="LICENSE">LICENSE</a> file for details.</p>
 
 <hr>
 
 <div align="center">
-  Made with ❤️ by Jeffrey Desir ✨
-</div>
-
-<h2 align="left">🛠️ Technologies</h2>
-
-<div align="left">
-  
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-
-</div>
-
-<h2 align="center">🌐 Web Development</h2>
-
-<div align="center">
-
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)](https://vuejs.org/)
-
-</div>
-
-<h2 align="right">☁️ Cloud & DevOps</h2>
-
-<div align="right">
-
-[![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
-[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
-[![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
-[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
-[![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)](https://www.terraform.io/)
-
+  Made with ❤️ by Jeffrey Jonathan Desir.
 </div>
