@@ -83,15 +83,15 @@
 <p align="right">Ready to supercharge your business? Here's how:</p>
 
 <div align="right">
-  <h3>1. 📧 Say Hello!</h3>
+  <h3>📧 Say Hello!</h3>
   <p>Drop me a line</p>
   <p>Grab a free chat session</p>
   
-  <h3>2. 🔍 Discover Possibilities</h3>
+  <h3>🔍 Discover Possibilities</h3>
   <p>I'll dig into what you need</p>
   <p>Custom solutions just for you</p>
   
-  <h3>3. ⚙️ Watch the Magic Happen</h3>
+  <h3>⚙️ Watch the Magic Happen</h3>
   <p>Clear updates every step</p>
   <p>No surprises, just results</p>
   <p>Quality you can see</p>
@@ -109,13 +109,13 @@
   <p>📈 <strong>Future-Ready Solutions</strong> - Grow without growing pains</p>
 </div>
 
-<h2 align="center">📞 Get In Touch 📞</h2>
+<h2 align="center">📞 Get In Touch</h2>
 
 <div align="center">
-  <p>🌐 <a href="https://www.desirtechnology.com">www.desirtechnology.com</a></p>
-  <p>📧 jeffreyjdesir@mail.com</p>
+  <p>🌐 <a href="https://www.desirtechnologies.pro">www.desirtechnologies.pro</a></p>
+  <p>📧 jeffreyjdesir@gmail.com</p>
   <p>📱 689-307-6982</p>
-  <p>📍 USA</p>
+  <p>📍Earth</p>
 </div>
 
 <h2 align="right">📝 Changelog </h2>
