@@ -39,6 +39,6 @@ jobs:
         with:
           project: "desirtechnology"
           entrypoint: "jsr:@std/http/file-server"
-          root: "dist"
+          root: "www/dist"
           
           
