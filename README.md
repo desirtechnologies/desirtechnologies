@@ -68,6 +68,10 @@
 
 </div>
 
+
+npm install @astropub/code
+
+
 <h2 align="right">☁️ Cloud & DevOps</h2>
 
 <div align="right">
