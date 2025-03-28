@@ -29,7 +29,7 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "cd www && npm install"
+        run: "npm install"
 
       - name: Build step
         run: "cd www && npm run build"
