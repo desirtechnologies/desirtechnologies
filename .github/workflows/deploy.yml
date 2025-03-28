@@ -38,7 +38,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "desirtechnology"
-          entrypoint: "server/entry.mjs"
+          entrypoint: "./entry.mjs"
           root: "dist"
           
           
