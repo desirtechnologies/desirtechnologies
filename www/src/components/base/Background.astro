@@ -1,126 +1,52 @@
 ---
-// src/components/TwinklingStars.astro
-import type { HTMLAttributes } from 'astro/types';
-
-// 1. Define Props Interface (Typing & Configuration)
-export interface Props extends Omit<HTMLAttributes<'div'>, 'class'> {
-  /** Number of stars to render */
-  starCount?: number;
-  /** Minimum star size in pixels */
-  minSize?: number;
-  /** Maximum star size in pixels */
-  maxSize?: number;
-  /** Maximum animation delay in seconds for twinkling variation */
-  maxDelay?: number;
-  /** Base color of the stars (CSS color value) */
-  baseColor?: string;
-  /** Color of the stars in dark mode (CSS color value) */
-  darkColor?: string;
-  /** Base animation duration */
-  animationDuration?: string;
-  /** Optional: Add custom classes to the container */
-  class?: string;
-}
-
-// 2. Get Props with Defaults (Robustness & Configuration)
-const {
-  starCount = 1000, // Reduced default slightly for broader compatibility
-  minSize = 1,
-  maxSize = 2.5,
-  maxDelay = 8,    // Slightly increased max delay range
-  baseColor = '#000000', // Default to white (often visible on dark backgrounds)
-  darkColor = '#FFFFFF', // Default to white (often visible on light backgrounds too)
-  animationDuration = '1.7s', // Default animation speed
-  class: customClasses, // Rename 'class' prop
-  ...rest // Capture remaining attributes (id, data-*, etc.)
-} = Astro.props;
-
-// 3. Type the Star Data Structure
-interface Star {
-  style: string; // We'll pre-compute the style string
-}
-
-// 4. Generate Stars (using props & optimized styling)
-// Pre-calculate the style string using CSS Custom Properties
-// This makes the inline style attribute much smaller per element
-const stars: Star[] = Array.from({ length: starCount }).map(() => {
-  const sizePx = Math.random() * (maxSize - minSize) + minSize;
-  const delayS = Math.random() * maxDelay;
-  const leftPercent = Math.random() * 100;
-  const topPercent = Math.random() * 100;
-
-  // Set CSS Variables inline for each star
-  const style = `
-    --star-left: ${leftPercent}%;
-    --star-top: ${topPercent}%;
-    --star-size: ${sizePx}px;
-    --star-delay: ${delayS}s;
-  `;
-  return { style };
-});
-
-// 5. Prepare Container Styles (for color variables)
-const containerStyle = `
-  --star-base-color: ${baseColor};
-  --star-dark-color: ${darkColor};
-  --star-animation-duration: ${animationDuration};
-`;
+// Twinkling Star Background 
+const numStars = 1600;
+const stars = Array.from({ length: numStars }).map(() => ({
+  left: `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
+  size: `${Math.random() * 2 + 1}px`,
+  delay: `${7 * Math.random()}s`,
+  // hsl: `hsl(${Math.random() * 360}, 100%, 50%)`, // background: ${hsl}; 
+}));
 ---
-
-{/* 6. Container Element */}
-{/* Apply base classes, custom classes, passthrough attributes, and color variables */}
 <div
-  class:list={[
-    'twinkling-stars-container fixed inset-0 -z-10 pointer-events-none overflow-hidden',
-    customClasses, // Add any custom classes passed via props
-  ]}
-  style={containerStyle}
-  aria-hidden="true" 
-  {...rest}      
+  class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden"
 >
-  {/* 7. Render Stars using pre-calculated styles */}
-  {stars.map(({ style }) => (
-    <div class="star" style={style} />
-  ))}
+  {
+    stars.map(({ left, top, size, delay }) => (
+      <div
+        class="absolute bg-none dark:bg-yellow-50 rounded-full animate-twinkle"
+        style={`
+            left: ${left};
+            top: ${top};
+            width: ${size};
+            height: ${size};
+            animation-delay: ${delay};
+        `}
+      />
+    ))
+  }
 </div>
 
-{/* 8. Scoped Styles (Encapsulation & Efficiency) */}
-<style define:vars={{ /* Make props available inside <style> if needed, though inline vars work well here */ }}>
-  .star {
-    position: absolute;
-    border-radius: 50%;
-    /* Read CSS Variables set inline on each element */
-    left: var(--star-left);
-    top: var(--star-top);
-    width: var(--star-size);
-    height: var(--star-size);
-    /* Default color */
-    background-color: var(--star-base-color);
-
-    /* Animation using CSS variable for delay */
-    /* Start invisible, fade in/out */
-    opacity: 0;
-    animation: twinkle var(--star-animation-duration) infinite alternate;
-    animation-delay: var(--star-delay);
-
-    /* Performance hint for opacity animation */
-    will-change: opacity;
+<!-- Gradient Cycle Background -->
+<!-- <div
+  class="gradient animate-cycleBg fixed top-0 left-0 w-full h-full -z-1 pointer-events-none overflow-hidden"
+/>
+<style>
+  .gradient {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
   }
+</style> -->
 
-  /* Apply dark mode color using a common convention (class on html) */
-  /* You might need to adjust this selector based on your dark mode implementation */
-  :global(html.dark) .twinkling-stars-container .star {
-    background-color: var(--star-dark-color);
+<!-- Image Background -->
+<!-- <style>
+  body {
+    background: url(/src/assets/backgrounds/mtn-lake.jpg) no-repeat center
+      center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
-  /* Alternative: @media (prefers-color-scheme: dark) */
-
-  @keyframes twinkle {
-    0% {
-      opacity: 0;
-    }
-    /* Adjust opacity/timing for desired twinkle effect */
-    50%, 100% {
-       opacity: 0.8;
-    }
-  }
-</style>
+</style> -->

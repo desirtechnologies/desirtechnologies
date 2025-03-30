@@ -1,4 +1,30 @@
 ---
+import ClientHeader from "@/includes/Header/Header"
+---
+
+
+<ClientHeader client:visible/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---
 import ThemeSwitcher from "@components/base/ThemeSwitcher.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
@@ -23,7 +49,7 @@ const { pathname } = Astro.url;
 
 <header transition:persist class={`container glass py-2 z-30 mb-4 lg:mt-4 lg:rounded-lg ${settings.sticky_header && "sticky top-0"}`}>
   <nav class="relative flex flex-wrap items-center justify-between">
-    <!-- navbar toggler -->
+    
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       for="nav-toggle"
@@ -40,7 +66,6 @@ const { pathname } = Astro.url;
           transform="rotate(45 10 10)"></polygon>
       </svg>
     </label>
-    <!-- /navbar toggler -->
     <ul
       id="nav-menu"
       class="text-center lg:text-left order-3 hidden w-full pb-6 md:order-1 md:flex md:w-auto md:space-x-2 md:pb-0 lg:space-x-4"
@@ -77,3 +102,6 @@ const { pathname } = Astro.url;
     </div>
   </nav>
 </header>
+
+
+ -->

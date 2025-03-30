@@ -1,14 +1,9 @@
 ---
 import config from "@/config/config.json";
-import { plainify } from "@lib/textConverter";
-import Footer from "@components/base/Footer.astro";
-import Header from "@components/base/Header.astro";
-import ObserverScript from "@components/base/ObserverScript.astro";
 import "@/styles/main.scss";
-
-import { ClientRouter } from 'astro:transitions';
-import Background from "@/components/base/Background.astro";
+import { plainify } from "@lib/textConverter";
 import { Tooltips } from "astro-tooltips";
+import { ClientRouter } from 'astro:transitions';
 
 // types for frontmatters
 export interface Props {
@@ -22,9 +17,8 @@ export interface Props {
 const { title, description, image, noindex, canonical } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+
+<head>
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -156,13 +150,3 @@ const { title, description, image, noindex, canonical } = Astro.props;
 
      <Tooltips interactive={false} delay={[333, 0]} />
   </head>
-  <body>
-    <Background />
-   
-    <main id="main-content" class="flex-1" >
-      <slot />
-    </main>
-    
-    <!-- <ObserverScript /> -->
-  </body>
-</html>

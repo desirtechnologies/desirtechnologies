@@ -1,9 +1,0 @@
----
-import { getIndex } from "@lib/contentParser";
-import PageLayout from "@components/home/PageLayout.astro";
-import type { HomeEntry } from "@/types";
-
-const entry = (await getIndex("home")) as HomeEntry;
----
-
-<PageLayout entry={entry} />
