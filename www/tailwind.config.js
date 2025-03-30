@@ -27,248 +27,144 @@ if (theme.fonts.font_family.secondary) {
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   safelist: [],
-  darkMode: ["class", "class"],
+  darkMode: "class",
   theme: {
-  	screens: {
-  		sm: '540px',
-  		md: '768px',
-  		lg: '1024px',
-  		xl: '1280px',
-  		'2xl': '1536px'
-  	},
-  	container: {
-  		center: true,
-  		padding: '2rem'
-  	},
-  	extend: {
-  		colors: {
-  			txt: {
-  				p: 'theme.colors.default.txt.primary',
-  				s: 'theme.colors.default.txt.secondary',
-  				light: 'theme.colors.default.txt.light'
-  			},
-  			bg: {
-  				p: 'theme.colors.default.bg.primary',
-  				s: 'theme.colors.default.bg.secondary',
-  				t: 'theme.colors.default.bg.tertiary'
-  			},
-  			border: 'hsl(var(--border))',
-  			darkmode: {
-  				txt: {
-  					p: 'theme.colors.darkmode.txt.primary',
-  					s: 'theme.colors.darkmode.txt.secondary',
-  					light: 'theme.colors.darkmode.txt.light'
-  				},
-  				bg: {
-  					p: 'theme.colors.darkmode.bg.primary',
-  					s: 'theme.colors.darkmode.bg.secondary',
-  					t: 'theme.colors.darkmode.bg.tertiary'
-  				},
-  				border: 'theme.colors.darkmode.border'
-  			},
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
-  		},
-  		minHeight: {
-  			static_sidemenu: 'calc(100vh - 6rem)'
-  		},
-  		maxHeight: {
-  			static_sidemenu: 'calc(100vh - 6rem)'
-  		},
-  		fontSize: {
-  			base: 'font_base + "px',
-  			h1: 'h1 + "rem',
-  			'h1-sm': 'h1 * 0.8 + "rem',
-  			h2: 'h2 + "rem',
-  			'h2-sm': 'h2 * 0.8 + "rem',
-  			h3: 'h3 + "rem',
-  			'h3-sm': 'h3 * 0.8 + "rem',
-  			h4: 'h4 + "rem',
-  			h5: 'h5 + "rem',
-  			h6: 'h6 + "rem'
-  		},
-  		fontFamily: {
-  			primary: [
-  				'fontPrimary',
-  				'fontPrimaryType'
-  			],
-  			secondary: [
-  				'fontSecondary',
-  				'fontSecondaryType'
-  			]
-  		},
-  		spacing: {
-  			'1/2': '50%',
-  			'1/3': '33.333333%',
-  			'2/3': '66.666667%',
-  			'1/4': '25%',
-  			'2/4': '50%',
-  			'3/4': '75%',
-  			'1/6': '16.666667%',
-  			'2/6': '33.333333%',
-  			'3/6': '50%',
-  			'4/6': '66.666667%',
-  			'5/6': '83.333333%',
-  			'1/12': '8.333333%',
-  			'2/12': '16.666667%',
-  			'3/12': '25%',
-  			'4/12': '33.333333%',
-  			'5/12': '41.666667%',
-  			'6/12': '50%',
-  			'7/12': '58.333333%',
-  			'8/12': '66.666667%',
-  			'9/12': '75%',
-  			'10/12': '83.333333%',
-  			'11/12': '91.666667%',
-  			'9/16': '56.25%'
-  		},
-  		animation: {
-  			fade: 'fadeIn 1000ms both',
-  			fadeUp: 'fadeInUp 1000ms both',
-  			fadeDown: 'fadeInDown 1000ms both',
-  			fadeRight: 'fadeInRight 1000ms both',
-  			fadeLeft: 'fadeInLeft 1000ms both',
-  			scale: 'scaleOut 1000ms both',
-  			twinkle: 'twinkle 5s infinite ease-in-out',
-  			cycleBg: 'cycleBg 60s ease infinite',
-  			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
-  		},
-  		keyframes: {
-  			fadeIn: {
-  				'0%': {
-  					opacity: 0
-  				},
-  				'100%': {
-  					opacity: 1
-  				}
-  			},
-  			fadeInUp: {
-  				'0%': {
-  					opacity: 0,
-  					transform: 'translateY(2rem)'
-  				},
-  				'100%': {
-  					opacity: 1,
-  					transform: 'translateY(0)'
-  				}
-  			},
-  			fadeInDown: {
-  				'0%': {
-  					opacity: 0,
-  					transform: 'translateY(-2rem)'
-  				},
-  				'100%': {
-  					opacity: 1,
-  					transform: 'translateY(0)'
-  				}
-  			},
-  			fadeInRight: {
-  				'0%': {
-  					opacity: 0,
-  					transform: 'translateX(-2rem)'
-  				},
-  				'100%': {
-  					opacity: 1,
-  					transform: 'translateX(0)'
-  				}
-  			},
-  			fadeInLeft: {
-  				'0%': {
-  					opacity: 0,
-  					transform: 'translateX(2rem)'
-  				},
-  				'100%': {
-  					opacity: 1,
-  					transform: 'translateX(0)'
-  				}
-  			},
-  			scaleOut: {
-  				'0%': {
-  					opacity: 0,
-  					transform: 'scale(0.5)'
-  				},
-  				'100%': {
-  					opacity: 1,
-  					transform: 'scale(1)'
-  				}
-  			},
-  			twinkle: {
-  				'0%, 20%, 100%': {
-  					opacity: 1
-  				},
-  				'10%': {
-  					opacity: 0.25
-  				}
-  			},
-  			cycleBg: {
-  				'0%, 100%': {
-  					backgroundPosition: '0% 50%'
-  				},
-  				'50%': {
-  					backgroundPosition: '100% 50%'
-  				}
-  			},
-  			'accordion-down': {
-  				from: {
-  					height: '0'
-  				},
-  				to: {
-  					height: 'var(--radix-accordion-content-height)'
-  				}
-  			},
-  			'accordion-up': {
-  				from: {
-  					height: 'var(--radix-accordion-content-height)'
-  				},
-  				to: {
-  					height: '0'
-  				}
-  			}
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		}
-  	}
+    screens: {
+      sm: "540px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
+    container: {
+      center: true,
+      padding: "2rem",
+    },
+    extend: {
+      colors: {
+        txt: {
+          p: theme.colors.default.txt.primary,
+          s: theme.colors.default.txt.secondary,
+          light: theme.colors.default.txt.light,
+        },
+        bg: {
+          p: theme.colors.default.bg.primary,
+          s: theme.colors.default.bg.secondary,
+          t: theme.colors.default.bg.tertiary,
+        },
+        border: theme.colors.default.border,
+        darkmode: {
+          txt: {
+            p: theme.colors.darkmode.txt.primary,
+            s: theme.colors.darkmode.txt.secondary,
+            light: theme.colors.darkmode.txt.light,
+          },
+          bg: {
+            p: theme.colors.darkmode.bg.primary,
+            s: theme.colors.darkmode.bg.secondary,
+            t: theme.colors.darkmode.bg.tertiary,
+          },
+          border: theme.colors.darkmode.border,
+        },
+      },
+      minHeight: {
+        static_sidemenu: "calc(100vh - 6rem)",
+      },
+      maxHeight: {
+        static_sidemenu: "calc(100vh - 6rem)",
+      },
+      fontSize: {
+        base: font_base + "px",
+        h1: h1 + "rem",
+        "h1-sm": h1 * 0.8 + "rem",
+        h2: h2 + "rem",
+        "h2-sm": h2 * 0.8 + "rem",
+        h3: h3 + "rem",
+        "h3-sm": h3 * 0.8 + "rem",
+        h4: h4 + "rem",
+        h5: h5 + "rem",
+        h6: h6 + "rem",
+      },
+      fontFamily: {
+        primary: [fontPrimary, fontPrimaryType],
+        secondary: [fontSecondary, fontSecondaryType],
+      },
+      spacing: {
+        "1/2": "50%",
+        "1/3": "33.333333%",
+        "2/3": "66.666667%",
+        "1/4": "25%",
+        "2/4": "50%",
+        "3/4": "75%",
+        "1/6": "16.666667%",
+        "2/6": "33.333333%",
+        "3/6": "50%",
+        "4/6": "66.666667%",
+        "5/6": "83.333333%",
+        "1/12": "8.333333%",
+        "2/12": "16.666667%",
+        "3/12": "25%",
+        "4/12": "33.333333%",
+        "5/12": "41.666667%",
+        "6/12": "50%",
+        "7/12": "58.333333%",
+        "8/12": "66.666667%",
+        "9/12": "75%",
+        "10/12": "83.333333%",
+        "11/12": "91.666667%",
+        "9/16": "56.25%",
+      },
+      animation: {
+        // Intersect
+        fade: "fadeIn 1000ms both",
+        fadeUp: "fadeInUp 1000ms both",
+        fadeDown: "fadeInDown 1000ms both",
+        fadeRight: "fadeInRight 1000ms both",
+        fadeLeft: "fadeInLeft 1000ms both",
+        scale: "scaleOut 1000ms both",
+        // Star Background
+        twinkle: "twinkle 5s infinite ease-in-out",
+        // Cycle Background
+        cycleBg: "cycleBg 60s ease infinite"
+      },
+      keyframes: {
+        // Intersect
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+        fadeInUp: {
+          "0%": { opacity: 0, transform: "translateY(2rem)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+        fadeInDown: {
+          "0%": { opacity: 0, transform: "translateY(-2rem)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+        fadeInRight: {
+          "0%": { opacity: 0, transform: "translateX(-2rem)" },
+          "100%": { opacity: 1, transform: "translateX(0)" },
+        },
+        fadeInLeft: {
+          "0%": { opacity: 0, transform: "translateX(2rem)" },
+          "100%": { opacity: 1, transform: "translateX(0)" },
+        },
+        scaleOut: {
+          "0%": { opacity: 0, transform: "scale(0.5)" },
+          "100%": { opacity: 1, transform: "scale(1)" },
+        },
+        // Star Background
+        twinkle: {
+          "0%, 20%, 100%": { opacity: 1 },
+          "10%": { opacity: 0.25 },
+        },
+        // Cycle Background
+        cycleBg: {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+      },
+    },
   },
   plugins: [
     require("@tailwindcss/typography"),
@@ -287,6 +183,5 @@ module.exports = {
     plugin(({ addVariant }) => {
       addVariant("intersect", "&:not([no-intersect])");
     }),
-      require("tailwindcss-animate")
-],
+  ],
 };

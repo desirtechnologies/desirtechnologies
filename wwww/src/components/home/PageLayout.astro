@@ -1,0 +1,29 @@
+---
+import Hero from "@/includes/Hero/Hero";
+import type { HomeEntry } from "@/types";
+import BaseLayout from "@components/base/BaseLayout.astro";
+import Services from "@/includes/Services/Services";
+import ResourcesSection from "@components/ResourcesSection";
+import PricingTable from "@/includes/PricingTable/PricingTable";
+import About from "@/includes/About/About";
+import CallToAction from "@/includes/CallToAction/CallToAction";
+import ITTriageReport from "@components/ITTriageReport";
+
+
+interface Props {
+  entry: HomeEntry;
+}
+
+const { entry } = Astro.props;
+---
+
+<BaseLayout>
+<Hero client:load/>
+<Services client:load/>
+<PricingTable client:load/>
+<ResourcesSection client:load/>
+<ITTriageReport client:load/>
+<About client:load/>
+<CallToAction client:load/>
+</BaseLayout>
+

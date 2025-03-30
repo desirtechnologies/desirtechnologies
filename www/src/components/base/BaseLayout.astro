@@ -6,7 +6,6 @@ import Header from "@components/base/Header.astro";
 import ObserverScript from "@components/base/ObserverScript.astro";
 import "@/styles/main.scss";
 import { ClientRouter } from 'astro:transitions';
-import FloatingSpeedDial from "@components/FloatingSpeedDial";
 import Background from "@/components/base/Background.astro";
 import { Tooltips } from "astro-tooltips";
 
@@ -162,7 +161,6 @@ const { title, description, image, noindex, canonical } = Astro.props;
     <main id="main-content" class="flex-1" >
       <slot />
     </main>
-    <FloatingSpeedDial client:load/>
     <Footer />
     <!-- <ObserverScript /> -->
   </body>

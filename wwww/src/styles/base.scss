@@ -1,0 +1,111 @@
+html {
+  /* Standard Tailwind: Set base font size and ensure html takes full height */
+  @apply text-base h-screen;
+}
+
+body {
+  /* Standard Tailwind: Default sans-serif font, normal weight, relaxed line height */
+  /* Replaced custom colors with standard grays */
+  /* Replaced custom font with font-sans */
+  @apply font-sans font-normal leading-relaxed text-gray-700 dark:text-gray-300;
+  /* Replaced custom background colors with white/dark gray */
+  @apply bg-white dark:bg-gray-900;
+  /* Standard Tailwind: Layout styles */
+  @apply flex flex-col min-h-screen lg:mx-8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Standard Tailwind: Default sans-serif font, bold weight, tight line height */
+  /* Replaced custom text colors with standard grays */
+  /* Replaced custom font with font-sans */
+  @apply font-sans font-bold leading-tight text-gray-900 dark:text-gray-100;
+
+  /* NOTE: intersect: is NOT a standard Tailwind variant. */
+  /* Requires custom configuration or a plugin (e.g., tailwindcss-intersect) */
+  /* These classes likely trigger an animation on scroll */
+  @apply intersect:animate-fade opacity-0;
+
+  /* Original gradient text - commented out as requested, but was using standard utilities */
+  /* @apply bg-gradient-to-r from-orange-500 via-indigo-500 to-green-500 text-transparent bg-clip-text; */
+}
+
+/* Mapped custom sizes to standard Tailwind responsive text sizes */
+h1,
+.h1 {
+  @apply text-4xl md:text-5xl; /* Was text-h1-sm md:text-h1 */
+}
+h2,
+.h2 {
+  @apply text-3xl md:text-4xl; /* Was text-h2-sm md:text-h2 */
+}
+h3,
+.h3 {
+  @apply text-2xl md:text-3xl; /* Was text-h3-sm md:text-h3 */
+}
+h4,
+.h4 {
+  @apply text-xl font-medium; /* Was text-h4 */
+}
+h5,
+.h5 {
+  @apply text-lg font-medium; /* Was text-h5 */
+}
+h6,
+.h6 {
+  @apply text-base font-medium; /* Was text-h6 */
+}
+
+p {
+  /* NOTE: intersect: is NOT a standard Tailwind variant. */
+  /* Requires custom configuration or a plugin (e.g., tailwindcss-intersect) */
+  /* These classes likely trigger an animation on scroll */
+  @apply intersect:animate-fade opacity-0;
+}
+
+b,
+strong {
+  /* Standard Tailwind: Make bold/strong text semibold */
+  @apply font-semibold;
+}
+
+code {
+   /* Standard Tailwind arbitrary modifier syntax to apply specific CSS */
+   /* Removes border artifacts potentially added by other libraries/styles */
+  @apply after:border-none;
+}
+
+img {
+  /* Standard Tailwind: Center images horizontally */
+  @apply mx-auto;
+}
+
+a:hover,
+.a:hover {
+   /* Standard Tailwind: Reduce opacity on hover */
+  @apply opacity-60;
+}
+
+hr {
+  /* Standard Tailwind: Apply a border color, replaced custom colors */
+  @apply border-gray-200 dark:border-gray-700;
+}
+
+/* --- Standard CSS Reset Rules --- */
+/* These are not Tailwind utilities but standard CSS for browser normalization. */
+/* They are kept here as they are valid CSS for their purpose. */
+
+/* Chrome, Safari, Edge, Opera: Hide number input spinners */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox: Hide number input spinners */
+input[type=number] {
+  -moz-appearance: textfield;
+}

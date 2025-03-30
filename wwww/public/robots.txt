@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/*
+
+Sitemap: https://www.desirtechnologies.pro/sitemap-index.xml
