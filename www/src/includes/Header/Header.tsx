@@ -1,11 +1,3 @@
-/*
-======================================================================
-FILE: src/includes/Header/StaticHeader.tsx (or your preferred path)
-======================================================================
-A simplified, static React component for the header layout.
-Renders basic structure and styles without client-side interactivity,
-state management, or effects. Relies on CSS for layout adjustments.
-*/
 import React from "react"; // Import React explicitly for clarity in a static context
 import { cn } from "@/lib/utils"; // Assuming path alias is set up
 import { Button } from "@/components/ui/button"; // Shadcn component

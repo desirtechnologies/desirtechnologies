@@ -1,32 +1,35 @@
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Check, HelpCircle } from "lucide-react"
-import Link from "next/link"
-import { Switch } from "@/components/ui/switch"
-import { Label } from "@/components/ui/label"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import React, { useState } from "react"; // Use React import
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card"; // Assuming these components exist
+import { Button } from "@/components/ui/button"; // Assuming these components exist
+import { Check, HelpCircle } from "lucide-react";
+// Removed: import Link from "next/link"
+import { Switch } from "@/components/ui/switch"; // Assuming these components exist
+import { Label } from "@/components/ui/label"; // Assuming these components exist
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"; // Assuming these components exist
 
+// --- Data Definition (Interface) ---
 interface PricingPlan {
-  id: string
-  name: string
-  description: string
+  id: string;
+  name: string;
+  description: string;
   price: {
-    monthly: string
-    yearly: string
-  }
+    monthly: string;
+    yearly: string;
+  };
   features: {
-    text: string
-    included: boolean
-    tooltip?: string
-  }[]
-  cta: string
-  popular?: boolean
+    text: string;
+    included: boolean;
+    tooltip?: string;
+  }[];
+  cta: string;
+  popular?: boolean;
 }
 
+// --- Data ---
+// This data is well-separated from the component logic
 const pricingPlans: PricingPlan[] = [
-  {
+   {
     id: "starter",
     name: "Starter",
     description: "Perfect for small businesses and startups",
@@ -87,13 +90,17 @@ const pricingPlans: PricingPlan[] = [
     ],
     cta: "Contact Sales",
   },
-]
+];
 
+// --- Presentation Component ---
 export default function PricingSection() {
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly")
+  // --- State ---
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
 
+  // --- Render ---
   return (
     <div className="space-y-8">
+      {/* Billing Cycle Toggle */}
       <div className="flex justify-center items-center space-x-4 mb-8">
         <Label
           htmlFor="billing-cycle"
@@ -117,6 +124,7 @@ export default function PricingSection() {
         </div>
       </div>
 
+      {/* Pricing Plans Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {pricingPlans.map((plan, index) => (
           <motion.div
@@ -134,7 +142,7 @@ export default function PricingSection() {
                   Most Popular
                 </div>
               )}
-              <CardContent className="p-6">
+              <CardContent className="p-6 flex flex-col h-full"> {/* Use flex col to push button down */}
                 <h3 className="text-2xl font-medium mb-2 font-retro">{plan.name}</h3>
                 <p className="text-sm text-foreground/70 mb-4 font-retro">{plan.description}</p>
                 <div className="mb-6">
@@ -146,18 +154,19 @@ export default function PricingSection() {
                     <div className="text-xs text-foreground/60 mt-1 font-retro">Billed annually</div>
                   )}
                 </div>
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-3 mb-6 grow"> {/* Use grow to take up space */}
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
                       <span className={`mr-2 mt-0.5 ${feature.included ? "text-primary" : "text-foreground/30"}`}>
                         {feature.included ? (
                           <Check className="h-5 w-5" />
                         ) : (
-                          <div className="h-5 w-5 border border-foreground/30 rounded-full" />
+                           // Render a placeholder or different icon for non-included features if desired
+                           <div className="h-5 w-5 border border-foreground/30 rounded-full" /> // Example placeholder
                         )}
                       </span>
                       <span
-                        className={`text-sm ${feature.included ? "text-foreground/70" : "text-foreground/40"} font-retro`}
+                        className={`text-sm ${feature.included ? "text-foreground/70" : "text-foreground/40 line-through"} font-retro`} // Added line-through for visual cue
                       >
                         {feature.text}
                       </span>
@@ -165,7 +174,7 @@ export default function PricingSection() {
                         <TooltipProvider>
                           <Tooltip>
                             <TooltipTrigger asChild>
-                              <HelpCircle className="h-4 w-4 ml-1 text-foreground/40" />
+                              <HelpCircle className="h-4 w-4 ml-1 text-foreground/40 cursor-help" />
                             </TooltipTrigger>
                             <TooltipContent>
                               <p className="text-xs">{feature.tooltip}</p>
@@ -176,12 +185,14 @@ export default function PricingSection() {
                     </li>
                   ))}
                 </ul>
+                {/* Use standard <a> tag within Button using asChild */}
+                {/* This will navigate via full page reload */}
                 <Button
                   asChild
-                  className={`w-full rounded-full ${plan.popular ? "bg-desir-500 hover:bg-desir-600 text-white" : ""} font-retro`}
+                  className={`w-full rounded-full mt-auto ${plan.popular ? "bg-desir-500 hover:bg-desir-600 text-white" : ""} font-retro`} // Assuming desir- classes are defined
                   variant={plan.popular ? "default" : "outline"}
                 >
-                  <Link href="/contact">{plan.cta}</Link>
+                  <a href="/contact">{plan.cta}</a>
                 </Button>
               </CardContent>
             </Card>
@@ -189,15 +200,16 @@ export default function PricingSection() {
         ))}
       </div>
 
+      {/* Custom Plan Section */}
       <div className="text-center mt-8">
         <p className="text-foreground/60 font-retro mb-4">
           Need a custom plan? Contact our sales team for a tailored solution.
         </p>
+        {/* Use standard <a> tag within Button using asChild */}
         <Button asChild variant="outline" className="rounded-full font-retro">
-          <Link href="/contact">Contact Sales</Link>
+          <a href="/contact">Contact Sales</a>
         </Button>
       </div>
     </div>
-  )
+  );
 }
-

@@ -1,11 +1,9 @@
-"use client"
+
 
 import { motion } from "framer-motion"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Clock } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
 
 interface BlogPost {
   id: number
@@ -66,10 +64,10 @@ export default function BlogPreview() {
           <Link href={`/blog/${post.slug}`} className="block h-full">
             <Card className="h-full overflow-hidden border border-border/50 bg-card/50 dark:bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:border-border/80">
               <div className="relative h-48 w-full overflow-hidden">
-                <Image
+                <img
                   src={post.image || "/placeholder.svg"}
                   alt={post.title}
-                  fill
+                  
                   className="object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>

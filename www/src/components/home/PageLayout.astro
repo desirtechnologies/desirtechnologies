@@ -1,54 +1,31 @@
 ---
-import BaseLayout from "@components/base/BaseLayout.astro";
-import { markdownify } from "@lib/textConverter";
-import Button from "@components/common/Button.astro";
+import Hero from "@/includes/Hero/Hero";
 import type { HomeEntry } from "@/types";
-import { Image } from "astro:assets";
+import BaseLayout from "@components/base/BaseLayout.astro";
+import Services from "@/includes/Services/Services";
+import ResourcesSection from "@components/ResourcesSection";
+import PricingTable from "@/includes/PricingTable/PricingTable";
+import About from "@/includes/About/About";
+import CallToAction from "@/includes/CallToAction/CallToAction";
+import ITTriageReport from "@components/ITTriageReport";
+
+
+
 
 interface Props {
   entry: HomeEntry;
 }
 
 const { entry } = Astro.props;
-const { image, imageAlt, title, content, button } = entry.data;
 ---
 
 <BaseLayout>
-  <!-- Banner -->
-  <section class="section">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="text-center lg:col-6">
-          {
-            image && (
-              <div class="blur-[0px]">
-                <Image
-                class="mb-6 w-64"
-                src={image}
-                alt={imageAlt}
-                width={1024}
-                height={1024}
-                format="webp"
-              />
-              </div>
-              
-            )
-          }
-          <h1 set:html={markdownify(title)} class="mb-4" />
-          <p set:html={markdownify(content)} class="mb-8" />
-          {
-            button && (
-              <Button
-                label={button.label}
-                link={button.link}
-                newtab
-                hoverInvert
-                color=""
-              />
-            )
-          }
-        </div>
-      </div>
-    </div>
-  </section>
+<Hero client:load/>
+<Services client:load/>
+<PricingTable client:load/>
+<ResourcesSection client:load/>
+<ITTriageReport client:load/>
+<About client:load/>
+<CallToAction client:load/>
 </BaseLayout>
+
