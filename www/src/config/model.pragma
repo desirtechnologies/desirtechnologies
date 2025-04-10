@@ -1,0 +1,101 @@
+/**
+ * @pragma model
+ * @description Model definition for Rotas - data structures and schemas
+ * @category contour.logos.tenet
+ * 
+ * Models define the data structures and schemas for the application.
+ * They provide validation, transformation, and relationship capabilities.
+ */
+
+// Define the Model shape in TOML-like syntax
+name = "ModelName"
+collection = "modelCollection" # Collection name if applicable
+
+// Fields definition with types and validation rules
+[fields]
+  [fields.id]
+  type = "string"
+  required = true
+  
+  [fields.title]
+  type = "string"
+  required = true
+  minLength = 3
+  maxLength = 100
+  
+  [fields.description]
+  type = "string"
+  required = false
+  
+  [fields.tags]
+  type = "array"
+  itemType = "string"
+  
+  [fields.count]
+  type = "number"
+  min = 0
+  max = 100
+  default = 0
+  
+  [fields.isActive]
+  type = "boolean"
+  default = true
+  
+  [fields.publishedAt]
+  type = "date"
+  
+  [fields.data]
+  type = "object"
+  properties = ["key", "value", "meta"]
+
+// Relationships with other models
+[relationships]
+  [relationships.author]
+  type = "belongsTo"
+  model = "User"
+  foreignKey = "authorId"
+  
+  [relationships.comments]
+  type = "hasMany"
+  model = "Comment"
+  foreignKey = "modelId"
+  
+  [relationships.category]
+  type = "belongsTo"
+  model = "Category"
+  foreignKey = "categoryId"
+  
+  [relationships.tags]
+  type = "belongsToMany"
+  model = "Tag"
+  through = "ModelTags"
+
+// Validation and transformation functions
+[validators]
+validateTitle = "function(value) { return value.length >= 3; }"
+validateTags = "function(tags) { return Array.isArray(tags) && tags.every(tag => typeof tag === 'string'); }"
+
+[transformers]
+transformTitle = "function(value) { return value.trim(); }"
+transformTags = "function(tags) { return tags.map(tag => tag.toLowerCase()); }"
+
+// Schema definition (simplified for readability)
+schema = """
+{
+  "type": "object",
+  "required": ["id", "title"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string", "minLength": 3 },
+    "description": { "type": "string" },
+    "tags": { 
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "count": { "type": "number", "minimum": 0 },
+    "isActive": { "type": "boolean" },
+    "publishedAt": { "type": "string", "format": "date-time" },
+    "data": { "type": "object" }
+  }
+}
+"""

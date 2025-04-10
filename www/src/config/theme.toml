@@ -1,0 +1,28 @@
+[colors.default]
+txt.primary = "#000"
+txt.secondary = "#222"
+txt.light = "#444"
+bg.primary = "#fff"
+bg.secondary = "#ddd"
+bg.tertiary = "#ddd"
+border = "#ddd"
+
+[colors.darkmode]
+txt.primary = "#fff"
+txt.secondary = "#ddd"
+txt.light = "#bbb"
+bg.primary = "#222"
+bg.secondary = "#444"
+bg.tertiary = "#444"
+border = "#444"
+
+
+[fonts]
+font_family.primary = "serif"
+font_family.primary_type = "serif"
+font_family.secondary = "Open Sans"
+font_family.secondary_type = "sans-serif"
+
+[fonts.font_size]
+base = 16
+scale = 1.250

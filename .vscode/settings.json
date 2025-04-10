@@ -1,0 +1,7 @@
+{
+  "apc.customize.enabled": true,
+  "apc.customize.customCSS": "./www/assets/animations.css",
+  "apc.customize.customScript": "./www/assets/animations.js",
+  "apc.customize.recursive": true,
+  "animations.extension.debug": true
+}

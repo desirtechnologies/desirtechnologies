@@ -3,12 +3,14 @@ import config from "@/config/config.json";
 import { plainify } from "@lib/textConverter";
 import Footer from "@components/base/Footer.astro";
 import Header from "@components/base/Header.astro";
+import { Footer as ClientFooter } from "@/includes/Footer/index.ts"
 import ObserverScript from "@components/base/ObserverScript.astro";
 import "@/styles/main.scss";
+import { Navigator as ClientNavigator } from "@/includes/Navigator/index.ts"
+import { Header as ClientHeader } from "@/includes/Header/index.ts"
 import { ClientRouter } from 'astro:transitions';
 import Background from "@/components/base/Background.astro";
 import { Tooltips } from "astro-tooltips";
-
 // types for frontmatters
 export interface Props {
   title?: string;
@@ -119,7 +121,7 @@ const { title, description, image, noindex, canonical } = Astro.props;
       }`}
     />
 
-    <!-- twitter-image -->
+   
     <meta
       name="twitter:image"
       content={`${config.site.base_url}${
@@ -128,7 +130,7 @@ const { title, description, image, noindex, canonical } = Astro.props;
     />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Katex -->
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
@@ -148,20 +150,17 @@ const { title, description, image, noindex, canonical } = Astro.props;
       onload="renderMathInElement(document.body);"></script>
 
     <ClientRouter fallback="swap" />
-    <!-- 
-     transition:animate="slide"
-     https://5-0-0-beta.docs.astro.build/en/guides/view-transitions/#_top
-     -->
 
      <Tooltips interactive={false} delay={[333, 0]} />
   </head>
   <body>
     <Background />
-    <Header/>
+    <ClientNavigator client:visible/>
+
+    <ClientHeader client:visible/>
     <main id="main-content" class="flex-1" >
       <slot />
     </main>
-    <Footer />
-    <!-- <ObserverScript /> -->
+    <ClientFooter client:visible/>
   </body>
 </html>

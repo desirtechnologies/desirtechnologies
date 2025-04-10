@@ -1,0 +1,240 @@
+/**
+ * @pragma cms
+ * @description CMS state configuration for Rotas - describes application state
+ * @category contour.logos.sator
+ * 
+ * This pragma defines the application state structure for the CMS integration.
+ * It serves as an output language (YAML) for transforming Rotas structures
+ * into a format that can be consumed by headless CMS systems.
+ */
+
+# Site configuration
+site:
+  title: "Site Title"
+  description: "Site description"
+  baseUrl: "https://example.com"
+  language: "en"
+  logo: "/images/logo.png"
+  favicon: "/favicon.ico"
+  themeColor: "#ffffff"
+  
+# Content collections
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: true
+    format: "md"
+    fields:
+      - name: "title"
+        label: "Title"
+        widget: "string"
+      - name: "description"
+        label: "Description"
+        widget: "text"
+      - name: "content"
+        label: "Content"
+        widget: "markdown"
+      - name: "layout"
+        label: "Layout"
+        widget: "select"
+        options: ["default", "wide", "sidebar"]
+      - name: "published"
+        label: "Published"
+        widget: "boolean"
+        default: true
+  
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    format: "mdx"
+    fields:
+      - name: "title"
+        label: "Title"
+        widget: "string"
+      - name: "slug"
+        label: "Slug"
+        widget: "string"
+      - name: "date"
+        label: "Publication Date"
+        widget: "datetime"
+      - name: "author"
+        label: "Author"
+        widget: "relation"
+        collection: "authors"
+        valueField: "id"
+        displayFields: ["name"]
+      - name: "excerpt"
+        label: "Excerpt"
+        widget: "text"
+      - name: "content"
+        label: "Content"
+        widget: "markdown"
+      - name: "tags"
+        label: "Tags"
+        widget: "list"
+        default: []
+      - name: "coverImage"
+        label: "Cover Image"
+        widget: "image"
+        required: false
+
+  - name: "products"
+    label: "Products"
+    folder: "src/content/products"
+    create: true
+    format: "yaml"
+    fields:
+      - name: "id"
+        label: "ID"
+        widget: "string"
+      - name: "name"
+        label: "Name"
+        widget: "string"
+      - name: "price"
+        label: "Price"
+        widget: "number"
+        valueType: "float"
+        min: 0
+      - name: "description"
+        label: "Description"
+        widget: "text"
+      - name: "features"
+        label: "Features"
+        widget: "list"
+      - name: "images"
+        label: "Images"
+        widget: "list"
+        field: { widget: "image" }
+      - name: "category"
+        label: "Category"
+        widget: "relation"
+        collection: "categories"
+        valueField: "id"
+        displayFields: ["name"]
+
+# Taxonomies
+taxonomies:
+  - name: "categories"
+    label: "Categories"
+    folder: "src/content/categories"
+    format: "yaml"
+    fields:
+      - name: "id"
+        label: "ID"
+        widget: "string"
+      - name: "name"
+        label: "Name"
+        widget: "string"
+      - name: "description"
+        label: "Description"
+        widget: "text"
+        required: false
+  
+  - name: "tags"
+    label: "Tags"
+    folder: "src/content/tags"
+    format: "yaml"
+    fields:
+      - name: "id"
+        label: "ID"
+        widget: "string"
+      - name: "name"
+        label: "Name"
+        widget: "string"
+      - name: "color"
+        label: "Color"
+        widget: "color"
+        required: false
+
+# Authors/users
+authors:
+  - name: "authors"
+    label: "Authors"
+    folder: "src/content/authors"
+    format: "yaml"
+    fields:
+      - name: "id"
+        label: "ID"
+        widget: "string"
+      - name: "name"
+        label: "Name"
+        widget: "string"
+      - name: "email"
+        label: "Email"
+        widget: "string"
+      - name: "bio"
+        label: "Biography"
+        widget: "text"
+      - name: "avatar"
+        label: "Avatar"
+        widget: "image"
+        required: false
+      - name: "social"
+        label: "Social Media"
+        widget: "object"
+        fields:
+          - { name: "twitter", label: "Twitter", widget: "string", required: false }
+          - { name: "github", label: "GitHub", widget: "string", required: false }
+          - { name: "linkedin", label: "LinkedIn", widget: "string", required: false }
+
+# Navigation menus
+menus:
+  - name: "main"
+    label: "Main Menu"
+    items:
+      - name: "home"
+        label: "Home"
+        url: "/"
+      - name: "blog"
+        label: "Blog"
+        url: "/blog"
+      - name: "products"
+        label: "Products"
+        url: "/products"
+      - name: "about"
+        label: "About"
+        url: "/about"
+  
+  - name: "footer"
+    label: "Footer Menu"
+    items:
+      - name: "privacy"
+        label: "Privacy Policy"
+        url: "/privacy"
+      - name: "terms"
+        label: "Terms of Service"
+        url: "/terms"
+      - name: "contact"
+        label: "Contact Us"
+        url: "/contact"
+
+# Media settings
+media:
+  folder: "public/images"
+  public_path: "/images"
+  max_size: 5242880 # 5MB
+
+# Global settings
+settings:
+  analytics:
+    provider: "google"
+    trackingId: "UA-XXXXXXXX-X"
+  
+  comments:
+    enabled: true
+    provider: "disqus"
+    disqusShortname: "example"
+  
+  search:
+    enabled: true
+    provider: "algolia"
+    apiKey: "XXXXXXXX"
+    indexName: "example"
+  
+  social:
+    twitter: "example"
+    facebook: "example"
+    instagram: "example"
+    youtube: "example"

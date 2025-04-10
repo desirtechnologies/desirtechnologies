@@ -1,0 +1,26 @@
+{
+  "name": "desirtechnology",
+  "version": "1.0.0",
+  "description": "Desire Technology with Rotas routing system",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^3.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "keywords": [
+    "astro",
+    "rotas",
+    "routing",
+    "contour"
+  ],
+  "author": "",
+  "license": "MIT"
+}

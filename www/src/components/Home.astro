@@ -1,0 +1,152 @@
+---
+// Home.astro component
+interface Props {
+  data?: any;
+  featured?: boolean;
+}
+
+const { data, featured = false } = Astro.props;
+---
+
+<div class={`home-page ${featured ? 'featured' : ''}`}>
+  <div class="hero">
+    <h1>Welcome to Rotas</h1>
+    <p class="subtitle">A flexible routing system for modern web applications</p>
+    <div class="cta-buttons">
+      <a href="/about" class="btn primary">Learn More</a>
+      <a href="/blog" class="btn secondary">Read Blog</a>
+    </div>
+  </div>
+
+  <div class="features">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Hierarchical Routing</h3>
+        <p>Create deeply nested routes with parent-child relationships</p>
+      </div>
+      <div class="feature-card">
+        <h3>Dynamic Components</h3>
+        <p>Load components dynamically based on route configuration</p>
+      </div>
+      <div class="feature-card">
+        <h3>MVC Integration</h3>
+        <p>Model-View-Controller pattern for clean separation of concerns</p>
+      </div>
+      <div class="feature-card">
+        <h3>Data Sources</h3>
+        <p>Connect to markdown, MDX, YAML, JSON or API data sources</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .home-page {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .primary {
+    background-color: #3b82f6;
+    color: white;
+  }
+  
+  .primary:hover {
+    background-color: #2563eb;
+  }
+  
+  .secondary {
+    background-color: #e5e7eb;
+    color: #374151;
+  }
+  
+  .secondary:hover {
+    background-color: #d1d5db;
+  }
+  
+  .features {
+    padding: 1rem;
+  }
+  
+  .features h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .feature-card {
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #111827;
+  }
+  
+  .feature-card p {
+    margin: 0;
+    color: #4b5563;
+  }
+  
+  @media (max-width: 768px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn {
+      width: 100%;
+      max-width: 250px;
+      text-align: center;
+    }
+  }
+</style>

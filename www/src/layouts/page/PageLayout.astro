@@ -1,0 +1,13 @@
+---
+import ApplicationLayout from "@/layouts/index.ts"
+import { Footer } from "@/includes/Footer/index.ts"
+import { Header } from "@/includes/Header/index.ts"
+---
+
+
+<ApplicationLayout>
+    <Header client:visible slot="header"/>
+    <slot />
+    <Footer client:visible slot="footer"/>
+</ApplicationLayout>
+

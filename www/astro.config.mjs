@@ -6,23 +6,39 @@ import AutoImport from "astro-auto-import";
 import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
-import config from "./src/config/config.json";
 import rehypeKatex from "rehype-katex";
+import toml from '@iarna/toml';
 import remarkMath from "remark-math";
 
-// https://astro.build/config
 export default defineConfig({
-  site: config.site.base_url,
-  base: config.site.base_path,
+  site: "https://www.desirtechnology.com",
+  base: "/",
   trailingSlash: "ignore",
+  vite: {
+    plugins: [
+      {
+        name: 'toml-loader',
+        transform(code, id) {
+          if (id.endsWith('.toml')) {
+            const parsed = toml.parse(code);
+            return {
+              code: `export default ${JSON.stringify(parsed)};`,
+              map: null
+            };
+          }
+        }
+      }
+    ]
+  },
   prefetch: {
     prefetchAll: true
   },
-  integrations: [react(), sitemap(), tailwind({
-    config: {
-      applyBaseStyles: false
-    }
-  }), AutoImport({
+  integrations: [
+    // Use default Tailwind integration with minimal configuration
+    tailwind(),
+    react(), 
+    sitemap(), 
+    AutoImport({
     imports: ["@components/common/Button.astro", "@shortcodes/Accordion", "@shortcodes/Notice", "@shortcodes/Youtube", "@shortcodes/Tabs", "@shortcodes/Tab"]
   }), mdx()],
   markdown: {

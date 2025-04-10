@@ -1,0 +1,55 @@
+/**
+ * @pragma component
+ * @description Component definition for Rotas
+ * @category contour.logos.arepo
+ * 
+ * Components are the visual building blocks of the application.
+ * They can be nested and composed together to form complex UIs.
+ */
+
+// Define the Component shape in TOML-like syntax
+name = "ComponentName"
+type = "presentational" # or "container", "layout", "page"
+
+// Props definition - can be static or dynamic
+[props]
+title = "Default Title"
+featured = false
+count = 0
+
+// Children components
+[children]
+  [children.item]
+  name = "ChildItem"
+  type = "presentational"
+  slot = "main"
+  
+  [children.header]
+  name = "HeaderComponent"
+  slot = "header"
+
+// Dynamic props that can be set at runtime
+dynamicProps = ["items", "user", "config"]
+
+// Slots that this component provides
+[slots]
+header = ["HeaderComponent"]
+main = ["MainContent", "ChildItem"]
+footer = ["FooterComponent"]
+
+// Template for SSG rendering
+template = """
+<div class="component {{#if featured}}featured{{/if}}">
+  <h2>{{title}}</h2>
+  {{> slots.header}}
+  <div class="content">
+    {{#each items}}
+      {{> slots.main}}
+    {{/each}}
+  </div>
+  {{> slots.footer}}
+</div>
+"""
+
+// Source file path
+source = "src/components/ComponentName.astro"

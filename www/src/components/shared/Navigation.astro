@@ -1,0 +1,202 @@
+---
+/**
+ * @pragma component
+ * @description Navigation bar component for the site with Matrix theme
+ * @category contour.components.shared
+ */
+
+interface NavigationLink {
+  text: string;
+  url: string;
+  active?: boolean;
+  icon?: string;
+  children?: NavigationLink[];
+}
+
+interface Props {
+  activePath?: string;
+}
+
+const { activePath = '/' } = Astro.props;
+
+// Define the main navigation links with icons
+const navLinks: NavigationLink[] = [
+  {
+    text: 'Home',
+    url: '/',
+    icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+    active: activePath === '/'
+  },
+  {
+    text: 'Tech',
+    url: '/tech',
+    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+    active: activePath.startsWith('/tech'),
+    children: [
+      { text: 'AI', url: '/tech/ai', active: activePath === '/tech/ai' },
+      { text: 'Web Development', url: '/tech/web-dev', active: activePath === '/tech/web-dev' }
+    ]
+  },
+  {
+    text: 'Blog',
+    url: '/blog',
+    icon: 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z',
+    active: activePath.startsWith('/blog'),
+    children: [
+      { text: 'Functional Programming', url: '/blog/functional-programming', active: activePath === '/blog/functional-programming' },
+      { text: 'Type-Safe Applications', url: '/blog/type-safe-applications', active: activePath === '/blog/type-safe-applications' }
+    ]
+  },
+  {
+    text: 'Docs',
+    url: '/docs',
+    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+    active: activePath.startsWith('/docs')
+  },
+  {
+    text: 'About',
+    url: '/about',
+    icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    active: activePath === '/about'
+  }
+];
+---
+
+<nav>
+  <!-- Desktop Navigation with Matrix-inspired design -->
+  <div class="navbar-wrapper">
+    <!-- Desktop Navigation -->
+    <div class="desktop-nav">
+      {navLinks.map(link => (
+        <div class="nav-item group">
+          <a 
+            href={link.url} 
+            class={`nav-link ${link.active ? 'active' : ''}`}
+            aria-current={link.active ? 'page' : undefined}
+          >
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d={link.icon} />
+            </svg>
+            <span>{link.text}</span>
+            {link.children && link.children.length > 0 && (
+              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+              </svg>
+            )}
+          </a>
+          
+          {link.children && link.children.length > 0 && (
+            <div class="dropdown-menu">
+              {link.children.map(child => (
+                <a 
+                  href={child.url} 
+                  class={`dropdown-item ${child.active ? 'active' : ''}`}
+                >
+                  <span class="dropdown-prefix">></span> {child.text}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+    
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-button" type="button" class="mobile-menu-button" aria-expanded="false">
+      <span class="sr-only">Toggle menu</span>
+      <!-- Icon when menu is closed -->
+      <svg id="menu-icon-closed" class="menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <!-- Icon when menu is open -->
+      <svg id="menu-icon-open" class="menu-icon hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Mobile menu, show/hide based on menu state -->
+  <div id="mobile-menu" class="mobile-menu hidden">
+    <div class="mobile-menu-content">
+      {navLinks.map(link => (
+        <div class="mobile-nav-item">
+          <a
+            href={link.url}
+            class={`mobile-nav-link ${link.active ? 'active' : ''}`}
+          >
+            <svg class="mobile-nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d={link.icon} />
+            </svg>
+            <span>{link.text}</span>
+          </a>
+          
+          {link.children && link.children.length > 0 && (
+            <div class="mobile-dropdown">
+              {link.children.map(child => (
+                <a 
+                  href={child.url} 
+                  class={`mobile-dropdown-item ${child.active ? 'active' : ''}`}
+                >
+                  <span class="mobile-dropdown-prefix">> </span>{child.text}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Matrix-themed navigation with enhanced mobile experience
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconClosed = document.getElementById('menu-icon-closed');
+    const menuIconOpen = document.getElementById('menu-icon-open');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        // Toggle menu visibility
+        mobileMenu.classList.toggle('hidden');
+        
+        // Toggle icon visibility
+        menuIconClosed.classList.toggle('hidden');
+        menuIconOpen.classList.toggle('hidden');
+        
+        // Update aria-expanded for accessibility
+        const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+        mobileMenuButton.setAttribute('aria-expanded', !expanded);
+        
+        // Add Matrix-themed animation effect on toggle
+        if (!mobileMenu.classList.contains('hidden')) {
+          // Animate menu items with staggered delay for Matrix effect
+          const menuItems = mobileMenu.querySelectorAll('.mobile-nav-item');
+          menuItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(10px)';
+            item.style.transition = `opacity 0.3s ease ${index * 0.05}s, transform 0.3s ease ${index * 0.05}s`;
+            
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 10);
+          });
+        }
+      });
+      
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (event) => {
+        if (!mobileMenu.classList.contains('hidden') && 
+            !mobileMenu.contains(event.target) && 
+            !mobileMenuButton.contains(event.target)) {
+          mobileMenu.classList.add('hidden');
+          menuIconClosed.classList.remove('hidden');
+          menuIconOpen.classList.add('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+</script>

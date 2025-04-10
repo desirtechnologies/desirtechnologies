@@ -64,3 +64,79 @@ export type SideNavMenuProps = {
   items: MenuItemWithDraft[];
   level: number;
 };
+
+// Rotas Types
+
+/**
+ * Component result from the functional renderer
+ */
+export type ComponentResult = { tag: 'ok', value: any } | { tag: 'err', error: Error };
+
+/**
+ * Option type for nullable values
+ */
+export type OptionType<T> = { tag: 'some', value: T } | { tag: 'none' };
+
+/**
+ * Layout component type
+ */
+export type Layout = any;
+
+/**
+ * Meta information for routes
+ */
+export type Meta = Record<string, any>;
+
+/**
+ * Component definition
+ */
+export type Component = string | { name: string, props?: Record<string, any> };
+
+/**
+ * Route view configuration
+ */
+export type RouteView = {
+  component?: Component;
+  layout?: string;
+  includes?: Record<string, ComponentType>;
+};
+
+/**
+ * Route meta information
+ */
+export type RouteMetaType = Record<string, any>;
+export type RouteMeta = RouteMetaType;
+
+/**
+ * Route configuration
+ */
+export type RouteConfigType = {
+  pattern: string;
+  views?: RouteViewType;
+  meta?: RouteMetaType | ((params: Record<string, string>) => Promise<RouteMetaType>);
+  models?: Record<string, {
+    validate?: (value: string) => Promise<boolean>;
+    transform?: (value: string) => Promise<any>;
+  }>;
+  controllers?: {
+    handler?: (params: Record<string, string>) => Promise<any>;
+  };
+};
+
+/**
+ * Renderer result
+ */
+export type RenderResultType = {
+  meta: RouteMeta;
+  component: ComponentResult;
+  layout: Layout;
+  includes: Record<string, any>;
+  props: Record<string, any>;
+  data: any;
+  error?: Error;
+};
+
+/**
+ * Alias for backward compatibility
+ */
+export type RenderResult = RenderResultType;

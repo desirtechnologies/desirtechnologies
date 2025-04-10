@@ -1,0 +1,142 @@
+---
+/**
+ * @pragma layout
+ * @description Layout for blog posts with content collection integration
+ * @category contour.layouts.blog
+ */
+import Layout from "../../views/Layout.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  publishDate?: Date;
+  updatedDate?: Date;
+  author?: string;
+  tags?: string[];
+  excerpt?: string;
+  minutesRead?: number;
+  featured?: boolean;
+  content?: string;
+  data?: any;
+}
+
+const {
+  title = 'Blog Post',
+  description = '',
+  publishDate,
+  updatedDate,
+  author,
+  tags = [],
+  excerpt = '',
+  minutesRead,
+  featured = false,
+  content,
+  data = {}
+} = Astro.props;
+
+// Combine props with data from content collection
+const mergedData = {
+  title: data.title || title,
+  description: data.description || description,
+  publishDate: data.publishDate || publishDate,
+  updatedDate: data.updatedDate || updatedDate,
+  author: data.author || author,
+  tags: data.tags || tags,
+  excerpt: data.excerpt || excerpt,
+  minutesRead: data.minutesRead || minutesRead,
+  featured: data.featured || featured
+};
+
+// Format date for display
+function formatDate(dateInput?: Date | string): string {
+  if (!dateInput) return '';
+  const date = typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+
+const publishedDate = formatDate(mergedData.publishDate);
+const formattedUpdatedDate = formatDate(mergedData.updatedDate);
+---
+
+<Layout title={mergedData.title} description={mergedData.description || mergedData.excerpt}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-10">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">{mergedData.title}</h1>
+      
+      {mergedData.excerpt && (
+        <p class="text-xl text-gray-600 mb-6">{mergedData.excerpt}</p>
+      )}
+      
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
+        {publishedDate && (
+          <span class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            Published: {publishedDate}
+          </span>
+        )}
+        
+        {formattedUpdatedDate && publishedDate !== formattedUpdatedDate && (
+          <span class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            Updated: {formattedUpdatedDate}
+          </span>
+        )}
+        
+        {mergedData.author && (
+          <span class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            By: {mergedData.author}
+          </span>
+        )}
+        
+        {mergedData.minutesRead && (
+          <span class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {mergedData.minutesRead} min read
+          </span>
+        )}
+      </div>
+      
+      {mergedData.tags && mergedData.tags.length > 0 && (
+        <div class="mb-8">
+          <div class="flex flex-wrap gap-2">
+            {mergedData.tags.map((tag: string) => (
+              <span class="bg-gray-50 text-gray-700 text-xs px-2 py-1 rounded-full">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
+    
+    <div class="prose prose-lg max-w-none">
+      {/* Render content */}
+      {data.Content ? <data.Content /> : <slot />}
+    </div>
+    
+    <div class="mt-12 pt-6 border-t border-gray-200">
+      <a 
+        href="/blog" 
+        class="inline-flex items-center text-blue-600 hover:text-blue-800"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Blog Posts
+      </a>
+    </div>
+  </article>
+</Layout>

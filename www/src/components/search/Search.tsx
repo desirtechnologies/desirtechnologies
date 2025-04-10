@@ -1,7 +1,7 @@
 import type { SearchableEntry } from "@/types"
 import Fuse from "fuse.js";
 import React, { useEffect, useRef, useState } from "react";
-import config from "@/config/config.json";
+
 import { plainify } from "@lib/textConverter";
 
 interface Props {
@@ -101,7 +101,7 @@ const SearchPage = ({ searchList }: Props) => {
                     <p className="">{item.data.description}</p>
                   )}
                   {  !item.data.description && item.data.autodescription && item.body && (
-                    <p className="">{plainify(item.body.slice(0, Number(config.settings.search_description_length)))}</p>
+                    <p className="">{plainify(item.body.slice(0, Number(20)))}</p>
                   )}
                 </div>
               </div>

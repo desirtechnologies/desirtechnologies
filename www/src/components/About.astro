@@ -1,0 +1,107 @@
+---
+// About component
+interface Props {
+  data?: any;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="about-page">
+  <h1>About Rotas</h1>
+  
+  <section class="about-section">
+    <h2>Our Mission</h2>
+    <p>
+      Rotas aims to simplify the creation of complex web applications by providing a flexible, 
+      hierarchical routing system that separates concerns and enables rapid development.
+    </p>
+  </section>
+  
+  <section class="about-section">
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Hierarchical Routing:</strong> Define routes in a tree structure with parent-child relationships</li>
+      <li><strong>MVC Pattern:</strong> Separate models, views, and controllers for clean code organization</li>
+      <li><strong>Dynamic Data:</strong> Load content from various sources including markdown, MDX, and APIs</li>
+      <li><strong>Component Structure:</strong> Includes and components with nested relationships</li>
+      <li><strong>Meta-language:</strong> Contour system for linguistic transformations</li>
+    </ul>
+  </section>
+  
+  <section class="about-section">
+    <h2>Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="avatar"></div>
+        <h3>Jane Smith</h3>
+        <p>Lead Developer</p>
+      </div>
+      <div class="team-member">
+        <div class="avatar"></div>
+        <h3>John Doe</h3>
+        <p>System Architect</p>
+      </div>
+      <div class="team-member">
+        <div class="avatar"></div>
+        <h3>Alice Johnson</h3>
+        <p>UX Designer</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .about-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .about-section {
+    margin-bottom: 3rem;
+  }
+  
+  .about-section h2 {
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  ul {
+    padding-left: 1.5rem;
+    line-height: 1.8;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .team-member {
+    text-align: center;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #e5e7eb;
+    margin: 0 auto 1rem;
+  }
+  
+  .team-member h3 {
+    margin: 0.5rem 0 0.25rem;
+  }
+  
+  .team-member p {
+    margin: 0;
+    color: #666;
+  }
+</style>

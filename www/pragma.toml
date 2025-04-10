@@ -1,0 +1,37 @@
+# Models
+[models]
+_definition_ = "Models configuration"
+
+[models.assets]
+ name =  "assets"
+[globals]
+_definition_ = "Global configuration"
+
+
+
+
+
+# Views
+[views]
+_definition_ = "Views configuration"
+
+[views.components]
+ _definition_ = "Components configuration"
+
+[views.styles]
+ _definition_ = "Styles configuration"
+
+[views.styles.theme]
+ _definition_ = "Theme configuration"
+
+[views.styles.theme.light]
+ _definition_ = "Light theme configuration"
+
+[views.styles.theme.dark]
+ _definition_ = "Dark theme configuration"
+
+[controllers]
+_definition_ = "Controllers configuration"
+
+[controllers.hooks.convention]
+ style = "FUNCTION-VARIABLE binding"

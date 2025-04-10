@@ -1,0 +1,54 @@
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Matrix theme variables */
+:root {
+  --matrix-bg: #0c0c0c;
+  --matrix-bg-alt: #111111; 
+  --matrix-text: #cccccc;
+  --matrix-green: #00ff41;
+  --matrix-green-glow: rgba(0, 255, 65, 0.3);
+  --matrix-green-dim: rgba(0, 255, 65, 0.7);
+  --matrix-border: #222222;
+  --terminal-bg: #0d1117;
+}
+
+/* Base element styles */
+body {
+  background-color: var(--matrix-bg);
+  color: var(--matrix-text);
+  min-height: 100vh;
+}
+
+/* Custom component styles */
+@layer components {
+  .matrix-btn {
+    @apply bg-transparent text-[#00ff41] border border-[#00ff41] py-2 px-4 rounded-md hover:bg-[rgba(0,255,65,0.1)] transition-all duration-300;
+  }
+  
+  .card {
+    @apply bg-[#111111] border border-[#222222] rounded-md overflow-hidden transition-all duration-300 flex flex-col h-full;
+  }
+  
+  .card-header {
+    @apply bg-[rgba(0,255,65,0.05)] p-4 border-b border-[#222222];
+  }
+  
+  .card-title {
+    @apply font-mono text-[#00ff41] m-0;
+  }
+  
+  .card-body {
+    @apply p-4 flex-1;
+  }
+  
+  .card-footer {
+    @apply p-4 border-t border-[#222222] bg-[rgba(0,0,0,0.1)];
+  }
+  
+  .resources-grid {
+    @apply grid grid-cols-1 gap-8 mb-12 w-full md:grid-cols-2 lg:grid-cols-3;
+  }
+}

@@ -1,0 +1,143 @@
+---
+/**
+ * @pragma component
+ * @description Generic content display component for content routes
+ * @category content
+ */
+
+// Props interface
+interface Props {
+  title?: string;
+  content?: any;
+  data?: any;
+  meta?: any;
+  slug?: string;
+  collection?: string;
+  [key: string]: any;
+}
+
+// Extract props with defaults
+const { 
+  title = 'Content',
+  content = null,
+  data = {},
+  meta = {},
+  slug = '',
+  collection = '',
+  ...rest
+} = Astro.props;
+
+// Determine the content type from the URL or props
+const contentType = collection || Astro.url.pathname.split('/')[1] || 'content';
+const contentSlug = slug || Astro.url.pathname.split('/').pop() || 'unknown';
+
+// Format the title based on available data
+const displayTitle = title || meta?.title || data?.title || contentSlug.replace(/-/g, ' ');
+
+// Format the date if available
+const publishDate = data?.publishDate || data?.date || meta?.date || new Date();
+const formattedDate = publishDate instanceof Date 
+  ? publishDate.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    })
+  : publishDate;
+
+// Extract content from various possible sources
+const contentBody = content || data?.content || data?.body || meta?.content || '';
+---
+
+<div class="content-display">
+  <header class="content-header bg-[#111111] p-6 mb-8 rounded-md border border-[#222222]">
+    <div class="container mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold text-[#00ff41] mb-4">{displayTitle}</h1>
+      
+      {formattedDate && (
+        <div class="text-gray-400 mb-4">
+          <time datetime={formattedDate}>{formattedDate}</time>
+        </div>
+      )}
+      
+      {meta?.description && (
+        <p class="text-xl text-gray-300 mb-4">{meta.description}</p>
+      )}
+      
+      <div class="flex flex-wrap gap-2 mt-4">
+        {meta?.tags && Array.isArray(meta.tags) && meta.tags.map((tag: string) => (
+          <span class="bg-[rgba(0,255,65,0.1)] text-[#00ff41] px-3 py-1 rounded-md text-sm">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  </header>
+  
+  <div class="content-body container mx-auto px-4 mb-12">
+    <div class="prose prose-invert max-w-none prose-headings:text-[#00ff41] prose-a:text-[#00ff41]">
+      {contentBody && (
+        <Fragment set:html={contentBody} />
+      )}
+      
+      {!contentBody && (
+        <div class="bg-[#111111] border border-[#222222] p-6 rounded-md">
+          <h2 class="text-xl text-[#00ff41] mb-4">Content Preview</h2>
+          <p class="text-gray-300">
+            This is a preview of the {contentType} content "{contentSlug}". 
+            The actual content is not available at the moment.
+          </p>
+          
+          <div class="mt-6 p-4 bg-[rgba(0,0,0,0.3)] rounded-md">
+            <code class="text-[#00ff41]">
+              Route: {Astro.url.pathname}<br />
+              Type: {contentType}<br />
+              Slug: {contentSlug}
+            </code>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</div>
+
+<style>
+  .content-display {
+    min-height: 70vh;
+  }
+  
+  .prose :global(h1),
+  .prose :global(h2),
+  .prose :global(h3),
+  .prose :global(h4),
+  .prose :global(h5),
+  .prose :global(h6) {
+    color: var(--matrix-green);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .prose :global(a) {
+    color: var(--matrix-green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--matrix-green-dim);
+  }
+  
+  .prose :global(a:hover) {
+    background-color: rgba(0, 255, 65, 0.1);
+  }
+  
+  .prose :global(pre) {
+    background-color: var(--terminal-bg);
+    border: 1px solid var(--matrix-border);
+    border-radius: 0.375rem;
+  }
+  
+  .prose :global(code) {
+    color: var(--matrix-green);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .prose :global(blockquote) {
+    border-left-color: var(--matrix-green);
+    background-color: rgba(0, 255, 65, 0.05);
+  }
+</style>
