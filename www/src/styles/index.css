@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Matrix theme */
+@import './matrix-theme.css';
+
 /* Matrix theme variables */
 :root {
   --matrix-bg: #0c0c0c;

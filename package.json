@@ -7,10 +7,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "manifest": "node node_modules/manifest/scripts/watch/watch.js",
+    "manifest:seed": "node node_modules/manifest/dist/manifest/src/seed/scripts/seed.js"
   },
   "dependencies": {
-    "astro": "^3.6.0"
+    "astro": "^3.6.0",
+    "manifest": "^4.11.3"
   },
   "devDependencies": {
     "typescript": "^5.2.2"

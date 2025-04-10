@@ -17,10 +17,13 @@ interface Props {
   activePath?: string;
 }
 
-const { activePath = '/' } = Astro.props;
+const { pathname } = Astro.url;
+const activePath = pathname.endsWith('/') && pathname !== '/' 
+  ? pathname.slice(0, -1) 
+  : pathname;
 
-// Define the main navigation links with icons
-const navLinks: NavigationLink[] = [
+// Navigation links with Matrix-inspired icons
+const navLinks = [
   {
     text: 'Home',
     url: '/',
@@ -31,27 +34,19 @@ const navLinks: NavigationLink[] = [
     text: 'Tech',
     url: '/tech',
     icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-    active: activePath.startsWith('/tech'),
+    active: activePath === '/tech',
     children: [
-      { text: 'AI', url: '/tech/ai', active: activePath === '/tech/ai' },
-      { text: 'Web Development', url: '/tech/web-dev', active: activePath === '/tech/web-dev' }
+      { text: 'AI & Machine Learning', url: '/tech/ai-ml', active: activePath === '/tech/ai-ml' },
+      { text: 'Web Development', url: '/tech/web-dev', active: activePath === '/tech/web-dev' },
+      { text: 'DevOps', url: '/tech/devops', active: activePath === '/tech/devops' }
     ]
   },
-  {
-    text: 'Blog',
-    url: '/blog',
-    icon: 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z',
-    active: activePath.startsWith('/blog'),
-    children: [
-      { text: 'Functional Programming', url: '/blog/functional-programming', active: activePath === '/blog/functional-programming' },
-      { text: 'Type-Safe Applications', url: '/blog/type-safe-applications', active: activePath === '/blog/type-safe-applications' }
-    ]
-  },
+
   {
     text: 'Docs',
     url: '/docs',
     icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
-    active: activePath.startsWith('/docs')
+    active: activePath === '/docs'
   },
   {
     text: 'About',
@@ -62,82 +57,103 @@ const navLinks: NavigationLink[] = [
 ];
 ---
 
-<nav>
-  <!-- Desktop Navigation with Matrix-inspired design -->
-  <div class="navbar-wrapper">
-    <!-- Desktop Navigation -->
-    <div class="desktop-nav">
-      {navLinks.map(link => (
-        <div class="nav-item group">
+<nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-auto max-w-screen-xl mx-auto">
+  <div class="matrix-nav-container bg-[#0c0c0c]/90 dark:bg-[#0c0c0c]/90 backdrop-blur-md border border-[#00ff41]/30 rounded-full px-1 py-1 shadow-lg shadow-[#00ff41]/20 flex items-center justify-center transition-all duration-300 hover:shadow-[#00ff41]/40">
+    <!-- Mobile menu button - only visible on small screens -->
+    <button id="mobile-menu-button" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[#111111] text-[#00ff41] border border-[#00ff41]/20 mr-2 hover:bg-[#111111]/80 transition-all duration-300" aria-label="Toggle menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    
+    <!-- Logo - always visible -->
+    <a href="/" class="flex items-center justify-center w-10 h-10 rounded-full bg-[#111111] text-[#00ff41] border border-[#00ff41]/20 hover:bg-[#111111]/80 transition-all duration-300 matrix-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    </a>
+    
+    <!-- Desktop Navigation Links - hidden on mobile -->
+    <div id="desktop-nav" class="hidden md:flex space-x-1 mx-2">
+      {navLinks.map((link) => (
+        <div class="relative group"> 
           <a 
             href={link.url} 
-            class={`nav-link ${link.active ? 'active' : ''}`}
-            aria-current={link.active ? 'page' : undefined}
+            class={`nav-link flex items-center px-4 py-2 rounded-full transition-all duration-300 ${link.active ? 'bg-[#111111] text-[#00ff41] border border-[#00ff41]/30' : 'text-[#cccccc] hover:bg-[#111111]/50 hover:text-[#00ff41]'}`}
+            data-has-children={link.children ? 'true' : 'false'}
           >
-            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d={link.icon} />
+            <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={link.icon} />
             </svg>
             <span>{link.text}</span>
-            {link.children && link.children.length > 0 && (
-              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+            {link.children && (
+              <svg class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             )}
           </a>
           
-          {link.children && link.children.length > 0 && (
-            <div class="dropdown-menu">
-              {link.children.map(child => (
-                <a 
-                  href={child.url} 
-                  class={`dropdown-item ${child.active ? 'active' : ''}`}
-                >
-                  <span class="dropdown-prefix">></span> {child.text}
-                </a>
-              ))}
+          {/* Dropdown for items with children */}
+          {link.children && (
+            <div class="dropdown-menu absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-48 rounded-md bg-[#0c0c0c] border border-[#00ff41]/30 shadow-lg shadow-[#00ff41]/20 overflow-hidden z-50 opacity-0 invisible transition-all duration-300 group-hover:opacity-100 group-hover:visible">
+              <div class="py-1">
+                {link.children.map((child) => (
+                  <a 
+                    href={child.url} 
+                    class={`block px-4 py-2 text-sm ${child.active ? 'bg-[#111111] text-[#00ff41]' : 'text-[#cccccc] hover:bg-[#111111] hover:text-[#00ff41]'} transition-colors duration-200`}
+                  >
+                    <span class="matrix-dropdown-prefix inline-block mr-2 text-[#00ff41] opacity-70">></span>
+                    {child.text}
+                  </a>
+                ))}
+              </div>
             </div>
           )}
         </div>
       ))}
     </div>
     
-    <!-- Mobile menu button -->
-    <button id="mobile-menu-button" type="button" class="mobile-menu-button" aria-expanded="false">
-      <span class="sr-only">Toggle menu</span>
-      <!-- Icon when menu is closed -->
-      <svg id="menu-icon-closed" class="menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    <!-- Dark Mode Toggle Button -->
+    <button id="theme-toggle" type="button" class="flex items-center justify-center w-10 h-10 rounded-full bg-[#111111] text-[#00ff41] border border-[#00ff41]/20 ml-2 hover:bg-[#111111]/80 transition-all duration-300" aria-label="Toggle dark mode">
+      <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
       </svg>
-      <!-- Icon when menu is open -->
-      <svg id="menu-icon-open" class="menu-icon hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
       </svg>
     </button>
   </div>
   
-  <!-- Mobile menu, show/hide based on menu state -->
-  <div id="mobile-menu" class="mobile-menu hidden">
-    <div class="mobile-menu-content">
-      {navLinks.map(link => (
-        <div class="mobile-nav-item">
-          <a
-            href={link.url}
-            class={`mobile-nav-link ${link.active ? 'active' : ''}`}
+  <!-- Mobile Navigation Menu - hidden by default -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#0c0c0c]/95 backdrop-blur-md z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center md:hidden">
+    <div class="w-full max-w-sm px-4">
+      {navLinks.map((link) => (
+        <div class="mb-4">
+          <a 
+            href={link.url} 
+            class={`mobile-nav-link flex items-center px-4 py-3 rounded-md w-full ${link.active ? 'bg-[#111111] text-[#00ff41] border border-[#00ff41]/30' : 'text-[#cccccc] hover:bg-[#111111]/50 hover:text-[#00ff41]'} transition-all duration-300`}
           >
-            <svg class="mobile-nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d={link.icon} />
+            <svg class="h-5 w-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={link.icon} />
             </svg>
-            <span>{link.text}</span>
+            <span class="text-lg">{link.text}</span>
+            {link.children && (
+              <svg class="h-5 w-5 ml-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            )}
           </a>
           
-          {link.children && link.children.length > 0 && (
-            <div class="mobile-dropdown">
-              {link.children.map(child => (
+          {/* Mobile dropdown items */}
+          {link.children && (
+            <div class="mobile-dropdown ml-8 mt-2 space-y-2">
+              {link.children.map((child) => (
                 <a 
                   href={child.url} 
-                  class={`mobile-dropdown-item ${child.active ? 'active' : ''}`}
+                  class={`flex items-center px-4 py-2 rounded-md ${child.active ? 'bg-[#111111] text-[#00ff41]' : 'text-[#cccccc] hover:bg-[#111111] hover:text-[#00ff41]'} transition-all duration-300`}
                 >
-                  <span class="mobile-dropdown-prefix">> </span>{child.text}
+                  <span class="matrix-dropdown-prefix mr-2 text-[#00ff41] opacity-70">></span>
+                  {child.text}
                 </a>
               ))}
             </div>
@@ -145,56 +161,120 @@ const navLinks: NavigationLink[] = [
         </div>
       ))}
     </div>
+    
+    <!-- Close button for mobile menu -->
+    <button id="mobile-close-button" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#111111] text-[#00ff41] border border-[#00ff41]/20 flex items-center justify-center hover:bg-[#111111]/80 transition-all duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
   </div>
 </nav>
 
+<style>
+  /* Only keeping minimal custom styles that can't be done with Tailwind */
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+    transition: all 0.5s ease;
+  }
+  
+  .nav-link:hover::before {
+    left: 100%;
+  }
+  
+  @keyframes matrix-pulse {
+    0% { transform: scale(0.9); opacity: 0.5; }
+    100% { transform: scale(1.1); opacity: 0.8; }
+  }
+  
+  /* Ensure dropdown menus appear on hover */
+  .group:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
+
 <script>
-  // Matrix-themed navigation with enhanced mobile experience
+  // Mobile menu toggle logic and dark mode functionality
   document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileCloseButton = document.getElementById('mobile-close-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    const menuIconClosed = document.getElementById('menu-icon-closed');
-    const menuIconOpen = document.getElementById('menu-icon-open');
     
-    if (mobileMenuButton && mobileMenu) {
+    if (mobileMenuButton && mobileMenu && mobileCloseButton) {
       mobileMenuButton.addEventListener('click', () => {
-        // Toggle menu visibility
-        mobileMenu.classList.toggle('hidden');
-        
-        // Toggle icon visibility
-        menuIconClosed.classList.toggle('hidden');
-        menuIconOpen.classList.toggle('hidden');
-        
-        // Update aria-expanded for accessibility
-        const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
-        mobileMenuButton.setAttribute('aria-expanded', !expanded);
-        
-        // Add Matrix-themed animation effect on toggle
-        if (!mobileMenu.classList.contains('hidden')) {
-          // Animate menu items with staggered delay for Matrix effect
-          const menuItems = mobileMenu.querySelectorAll('.mobile-nav-item');
-          menuItems.forEach((item, index) => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(10px)';
-            item.style.transition = `opacity 0.3s ease ${index * 0.05}s, transform 0.3s ease ${index * 0.05}s`;
-            
-            setTimeout(() => {
-              item.style.opacity = '1';
-              item.style.transform = 'translateY(0)';
-            }, 10);
-          });
-        }
+        mobileMenu.classList.remove('translate-x-full');
       });
       
-      // Close mobile menu when clicking outside
+      mobileCloseButton.addEventListener('click', () => {
+        mobileMenu.classList.remove('translate-x-0');
+        mobileMenu.classList.add('translate-x-full');
+      });
+      
+      // Close menu when clicking outside
       document.addEventListener('click', (event) => {
-        if (!mobileMenu.classList.contains('hidden') && 
-            !mobileMenu.contains(event.target) && 
-            !mobileMenuButton.contains(event.target)) {
-          mobileMenu.classList.add('hidden');
-          menuIconClosed.classList.remove('hidden');
-          menuIconOpen.classList.add('hidden');
-          mobileMenuButton.setAttribute('aria-expanded', 'false');
+        const target = event.target as Node;
+        if (!mobileMenu.classList.contains('translate-x-full') && 
+            !mobileMenu.contains(target) && 
+            !mobileMenuButton.contains(target)) {
+          mobileMenu.classList.remove('translate-x-0');
+          mobileMenu.classList.add('translate-x-full');
+        }
+      });
+    }
+    
+    // Matrix-themed hover effects for desktop
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        // Create matrix code rain effect on hover
+        const glowEffect = document.createElement('div');
+        glowEffect.classList.add('matrix-glow-effect');
+        link.appendChild(glowEffect);
+        
+        setTimeout(() => {
+          glowEffect.remove();
+        }, 500);
+      });
+    });
+
+    // Dark mode toggle functionality
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    if (themeToggleBtn && themeToggleDarkIcon && themeToggleLightIcon) {
+      // Set the initial theme based on localStorage or system preference
+      if (localStorage.getItem('color-theme') === 'dark' || 
+          (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        // Dark mode is active
+        document.documentElement.classList.add('dark');
+        themeToggleLightIcon.classList.remove('hidden');
+      } else {
+        // Light mode is active
+        document.documentElement.classList.remove('dark');
+        themeToggleDarkIcon.classList.remove('hidden');
+      }
+
+      // Toggle theme when button is clicked
+      themeToggleBtn.addEventListener('click', () => {
+        // Toggle icons
+        themeToggleDarkIcon.classList.toggle('hidden');
+        themeToggleLightIcon.classList.toggle('hidden');
+        
+        // Toggle dark class on html element
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
         }
       });
     }

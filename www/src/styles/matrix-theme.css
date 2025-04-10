@@ -1,0 +1,249 @@
+/**
+ * Matrix Theme CSS
+ * A cyberpunk-inspired theme with Matrix green colors and effects
+ */
+
+:root {
+  /* Matrix theme colors */
+  --matrix-green: #00ff41;
+  --matrix-green-dim: rgba(0, 255, 65, 0.7);
+  --matrix-green-glow: rgba(0, 255, 65, 0.3);
+  --matrix-dark: #0c0c0c;
+  --matrix-darker: #050505;
+  --matrix-border: #222222;
+  --terminal-bg: #111111;
+}
+
+/* Matrix text effects */
+.matrix-text {
+  color: var(--matrix-green);
+  font-family: 'JetBrains Mono', monospace;
+  text-shadow: 0 0 5px var(--matrix-green-glow);
+}
+
+.matrix-text-animated {
+  position: relative;
+  color: var(--matrix-green);
+  font-family: 'JetBrains Mono', monospace;
+  text-shadow: 0 0 5px var(--matrix-green-glow);
+  overflow: hidden;
+}
+
+.matrix-text-animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(0, 255, 65, 0.2) 50%, 
+    transparent 100%);
+  transform: translateX(-100%);
+  animation: matrix-scan 3s ease-in-out infinite;
+}
+
+@keyframes matrix-scan {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Matrix buttons */
+.matrix-btn {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--matrix-green);
+  border: 1px solid var(--matrix-green);
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.875rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.matrix-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.matrix-btn:hover {
+  background-color: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+}
+
+.matrix-btn:hover::before {
+  left: 100%;
+}
+
+/* Matrix cards */
+.card {
+  background-color: var(--terminal-bg);
+  border: 1px solid var(--matrix-border);
+  border-radius: 0.375rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+  border-color: var(--matrix-green-dim);
+}
+
+.card-header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--matrix-border);
+}
+
+.card-title {
+  color: var(--matrix-green);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.card-body {
+  padding: 1rem;
+  color: #cccccc;
+}
+
+/* Matrix navigation effects */
+.nav-matrix-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-matrix-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+  transition: all 0.5s ease;
+}
+
+.nav-matrix-effect:hover::before {
+  left: 100%;
+}
+
+/* Matrix dropdown animation */
+@keyframes matrix-dropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.matrix-dropdown {
+  animation: matrix-dropdown 0.3s ease forwards;
+}
+
+/* Matrix code rain effect */
+.matrix-code-rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.matrix-code-character {
+  position: absolute;
+  color: var(--matrix-green);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  opacity: 0;
+  animation: matrix-code-fall 2s linear forwards;
+}
+
+@keyframes matrix-code-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+
+/* Matrix pill navigation specific styles */
+.matrix-pill-nav {
+  background-color: var(--matrix-dark);
+  border: 1px solid var(--matrix-green-dim);
+  border-radius: 9999px;
+  padding: 0.25rem;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+.matrix-pill-item {
+  color: var(--matrix-green);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.matrix-pill-item:hover,
+.matrix-pill-item.active {
+  background-color: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+/* Matrix loading indicator */
+.matrix-loader {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.matrix-loader:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  box-sizing: border-box;
+  border: 26px solid var(--matrix-green);
+  border-color: var(--matrix-green) transparent var(--matrix-green) transparent;
+  animation: matrix-loader 1.2s infinite;
+}
+
+@keyframes matrix-loader {
+  0% {
+    transform: rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0.5;
+  }
+}
