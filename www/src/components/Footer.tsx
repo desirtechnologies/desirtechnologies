@@ -1,6 +1,4 @@
 import React from "react"
-
-import Link from "next/link"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -33,6 +31,7 @@ import {
   Home,
   Sparkles,
   ChevronRight,
+  Linkedin,
 } from "lucide-react"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
@@ -118,13 +117,13 @@ export default function Footer() {
         {/* Company Info Section */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
           <div className="md:col-span-5 space-y-8">
-            <Link href="/" className="inline-block mb-2 group">
+            <a href="/" className="inline-block mb-2 group">
               <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
                 <span className="font-retro text-3xl bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary group-hover:from-primary/80 group-hover:via-primary group-hover:to-primary/80 transition-all duration-500">
                   Desir Technologies
                 </span>
               </motion.div>
-            </Link>
+            </a>
             <p className="text-base leading-relaxed text-muted-foreground max-w-md">
               Empowering businesses with innovative technology solutions to drive growth and success. We specialize in
               web development, mobile apps, cloud solutions, and IT consulting.
@@ -320,7 +319,7 @@ export default function Footer() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Link
+                  <a
                     href={item.href}
                     className="text-muted-foreground hover:text-foreground transition-colors flex items-center group relative overflow-hidden rounded-lg p-2 -ml-2"
                   >
@@ -337,7 +336,7 @@ export default function Footer() {
                     </div>
                     <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                     <ChevronRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
-                  </Link>
+                  </a>
                 </motion.li>
               ))}
             </ul>
@@ -370,7 +369,7 @@ export default function Footer() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
                 >
-                  <Link
+                  <a
                     href={item.href}
                     className="text-muted-foreground hover:text-foreground transition-colors flex items-center group relative overflow-hidden rounded-lg p-2 -ml-2"
                   >
@@ -387,7 +386,7 @@ export default function Footer() {
                     </div>
                     <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                     <ChevronRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
-                  </Link>
+                  </a>
                 </motion.li>
               ))}
             </ul>
@@ -422,7 +421,7 @@ export default function Footer() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 + 0.6 }}
                 >
-                  <Link
+                  <a
                     href={item.href}
                     className="text-muted-foreground hover:text-foreground transition-colors flex items-center group relative overflow-hidden rounded-lg p-2 -ml-2"
                   >
@@ -439,7 +438,7 @@ export default function Footer() {
                     </div>
                     <span className="group-hover:translate-x-1 transition-transform duration-300">{item.label}</span>
                     <ChevronRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
-                  </Link>
+                  </a>
                 </motion.li>
               ))}
             </ul>
@@ -480,7 +479,7 @@ export default function Footer() {
                 <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   10 Essential Developer Tools for 2025 - Boost your productivity with these cutting-edge tools.
                 </p>
-                <Link
+                <a
                   href="/blog/essential-developer-tools-2025"
                   className="text-sm text-primary hover:text-primary/80 flex items-center group/link"
                 >
@@ -491,7 +490,7 @@ export default function Footer() {
                   >
                     <ArrowRight className="h-3.5 w-3.5 ml-1.5 group-hover/link:translate-x-1 transition-transform" />
                   </motion.div>
-                </Link>
+                </a>
               </motion.div>
 
               <motion.div
@@ -515,7 +514,7 @@ export default function Footer() {
                 <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   AI-Powered Development Solutions - Leverage the power of artificial intelligence in your next project.
                 </p>
-                <Link
+                <a
                   href="/services/ai-development"
                   className="text-sm text-primary hover:text-primary/80 flex items-center group/link"
                 >
@@ -526,7 +525,7 @@ export default function Footer() {
                   >
                     <ArrowRight className="h-3.5 w-3.5 ml-1.5 group-hover/link:translate-x-1 transition-transform" />
                   </motion.div>
-                </Link>
+                </a>
               </motion.div>
             </div>
           </div>
@@ -552,7 +551,7 @@ export default function Footer() {
                     { icon: <Headphones />, label: "IT Consulting", href: "/services/it-consulting" },
                   ].map((item) => (
                     <li key={item.href}>
-                      <Link
+                      <a
                         href={item.href}
                         className="text-muted-foreground hover:text-foreground transition-colors flex items-center py-2 px-3 rounded-md hover:bg-accent/50 group"
                       >
@@ -563,7 +562,7 @@ export default function Footer() {
                         </div>
                         {item.label}
                         <ChevronRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </Link>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -586,7 +585,7 @@ export default function Footer() {
                     { icon: <Server />, label: "Hosting", href: "/resources/hosting" },
                   ].map((item) => (
                     <li key={item.href}>
-                      <Link
+                      <a
                         href={item.href}
                         className="text-muted-foreground hover:text-foreground transition-colors flex items-center py-2 px-3 rounded-md hover:bg-accent/50 group"
                       >
@@ -597,7 +596,7 @@ export default function Footer() {
                         </div>
                         {item.label}
                         <ChevronRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </Link>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -620,7 +619,7 @@ export default function Footer() {
                     { icon: <Mail />, label: "Contact", href: "/contact" },
                   ].map((item) => (
                     <li key={item.href}>
-                      <Link
+                      <a
                         href={item.href}
                         className="text-muted-foreground hover:text-foreground transition-colors flex items-center py-2 px-3 rounded-md hover:bg-accent/50 group"
                       >
@@ -631,7 +630,7 @@ export default function Footer() {
                         </div>
                         {item.label}
                         <ChevronRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </Link>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -665,7 +664,7 @@ export default function Footer() {
               <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                 10 Essential Developer Tools for 2025 - Boost your productivity with these cutting-edge tools.
               </p>
-              <Link
+              <a
                 href="/blog/essential-developer-tools-2025"
                 className="text-sm text-primary hover:text-primary/80 flex items-center group/link"
               >
@@ -676,7 +675,7 @@ export default function Footer() {
                 >
                   <ArrowRight className="h-3.5 w-3.5 ml-1.5 group-hover/link:translate-x-1 transition-transform" />
                 </motion.div>
-              </Link>
+              </a>
             </motion.div>
           </div>
         </div>
@@ -703,18 +702,18 @@ export default function Footer() {
               </p>
             </div>
             <div className="flex items-center flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-              <Link href="/privacy" className="hover:text-foreground transition-colors hover:underline">
+              <a href="/privacy" className="hover:text-foreground transition-colors hover:underline">
                 Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-foreground transition-colors hover:underline">
+              </a>
+              <a href="/terms" className="hover:text-foreground transition-colors hover:underline">
                 Terms of Service
-              </Link>
-              <Link href="/sitemap" className="hover:text-foreground transition-colors hover:underline">
+              </a>
+              <a href="/sitemap" className="hover:text-foreground transition-colors hover:underline">
                 Sitemap
-              </Link>
-              <Link href="/contact" className="hover:text-foreground transition-colors hover:underline">
+              </a>
+              <a href="/contact" className="hover:text-foreground transition-colors hover:underline">
                 Contact Us
-              </Link>
+              </a>
             </div>
           </div>
         </div>

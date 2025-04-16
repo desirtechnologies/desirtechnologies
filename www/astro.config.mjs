@@ -2,13 +2,14 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import AutoImport from "astro-auto-import";
-import { defineConfig } from "astro/config";
-import remarkCollapse from "remark-collapse";
-import remarkToc from "remark-toc";
-import rehypeKatex from "rehype-katex";
 import toml from '@iarna/toml';
+import AutoImport from "astro-auto-import";
+import tailwindConfigViewer from "astro-tailwind-config-viewer";
+import { defineConfig } from "astro/config";
+import rehypeKatex from "rehype-katex";
+import remarkCollapse from "remark-collapse";
 import remarkMath from "remark-math";
+import remarkToc from "remark-toc";
 
 export default defineConfig({
   site: "https://www.desirtechnology.com",
@@ -34,7 +35,7 @@ export default defineConfig({
     prefetchAll: true
   },
   integrations: [
-    // Use default Tailwind integration with minimal configuration
+   tailwindConfigViewer(),
     tailwind(),
     react(), 
     sitemap(), 
@@ -47,7 +48,7 @@ export default defineConfig({
     }], remarkMath],
     rehypePlugins: [[rehypeKatex, {}]],
     shikiConfig: {
-      theme: "dark-plus", // https://shiki.style/themes
+      theme: "dark-plus",
     },
     extendDefaultPlugins: true
   },

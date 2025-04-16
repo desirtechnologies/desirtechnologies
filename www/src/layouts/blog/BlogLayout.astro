@@ -4,7 +4,7 @@
  * @description Layout for blog posts with content collection integration
  * @category contour.layouts.blog
  */
-import Layout from "../../views/Layout.astro";
+import { LayoutRouter } from "@/layouts/layout";
 
 interface Props {
   title?: string;
@@ -62,7 +62,7 @@ const publishedDate = formatDate(mergedData.publishDate);
 const formattedUpdatedDate = formatDate(mergedData.updatedDate);
 ---
 
-<Layout title={mergedData.title} description={mergedData.description || mergedData.excerpt}>
+<LayoutRouter title={mergedData.title} description={mergedData.description || mergedData.excerpt}>
   <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <header class="mb-10">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">{mergedData.title}</h1>
@@ -139,4 +139,4 @@ const formattedUpdatedDate = formatDate(mergedData.updatedDate);
       </a>
     </div>
   </article>
-</Layout>
+</LayoutRouter>

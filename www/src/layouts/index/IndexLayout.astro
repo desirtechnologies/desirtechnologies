@@ -1,8 +1,19 @@
 ---
-import PageLayout from "@/layouts/index.ts"
+import { PageLayout } from "@/layouts/index";
+import { Hero } from "@/includes/Hero/Hero.tsx";
+import { Gallery } from "@/includes/Gallery/Gallery";
+import { DataTable } from "@/includes/DataTable/DataTable";
+import { CallToAction } from "@/includes/CallToAction/CallToAction";
+import { ContentCollection } from "@/includes/ContentCollection/ContentCollection";
 ---
 
-
 <PageLayout>
-    <slot />
+  <Hero client:load/>
+  <Gallery client:load/>
+  <DataTable client:load/>
+  <ContentCollection client:load/>
+  <CallToAction client:load/>
+
+  
+  <slot />
 </PageLayout>

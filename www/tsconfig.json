@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.astro", "tailwind.config.mjs"],
   "exclude": ["node_modules"]
 }

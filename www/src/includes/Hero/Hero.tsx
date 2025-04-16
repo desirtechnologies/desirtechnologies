@@ -1,19 +1,9 @@
-import React from "react"
-import { useState, useEffect } from "react"
-import BlogPreview from "@/components/BlogPreview"
-import AboutSection from "@/components/AboutSection"
-import MatrixParticles from "@/components/MatrixParticles"
-import PageTransition from "@/components/PageTransition"
 import TerminalSection from "@/components/TerminalSection"
-import { motion } from "framer-motion"
-import { ArrowRight, Code, Zap, Server, Database, Globe, Shield, BarChart, Cpu } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { motion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
+import React from "react"
 
-import PricingSection from "@/components/PricingSection"
-import ResourcesSection from "@/components/ResourcesSection"
-import ITTriageSection from "@/components/ITTriageSection"
-import { ResourcesSectionHome } from "@/components/resources/ResourcesSectionHome"
 const terminalCommands = [
     "$ whoami",
     "desir-technologies",

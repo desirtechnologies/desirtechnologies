@@ -22,7 +22,7 @@ const { title, description, image, noindex, canonical } = Astro.props
 <!DOCTYPE html>
 <html lang={HTML_DOCUMENT_LANG}>
 
-<slot name="head">
+<slot name="metadata">
   <Head title={title} description={description} image={image} noindex={noindex} canonical={canonical} />
 </slot>
 

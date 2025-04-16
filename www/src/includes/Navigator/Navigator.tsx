@@ -162,7 +162,7 @@ export  function Navigator() {
 
   return (
     <AnimatePresence>
-      {true && (
+      {isVisible && (
         <motion.div
           className="fixed bottom-6 right-6 z-[9999]"
           initial={{ y: 100, opacity: 0 }}

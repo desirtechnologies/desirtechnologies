@@ -1,0 +1,11 @@
+input_dir = "./docs"
+output = "./README.md"
+template = "./build/templates/readme.tpl.md"
+
+order = [
+  "intro.md",
+  "installation.md",
+  "usage.md",
+  "api.md",
+  "faq.md"
+]

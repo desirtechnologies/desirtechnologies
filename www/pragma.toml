@@ -8,6 +8,22 @@ _definition_ = "Models configuration"
 _definition_ = "Global configuration"
 
 
+[[PRAGMA]]
+
+
+
+
+
+[globals.metadata]
+version = "0.0.1"
+author = "Jeffrey Jonathan Desir"
+date = "2025-04-05"
+
+[views.styles.theme]
+
+[controllers.runtime.astro]
+
+[models.data.collections]
 
 
 

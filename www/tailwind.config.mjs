@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+
 import plugin from "tailwindcss/plugin";
 
 // Import theme configuration
@@ -266,7 +266,7 @@ const config = {
       addVariant("intersect", "&:not([no-intersect])");
     }),
   ],
-} satisfies Config;
+} 
 
 export default config;
 

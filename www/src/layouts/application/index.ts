@@ -1,1 +1,1 @@
-export * from "./ApplicationLayout.astro"
+export { default } from "./ApplicationLayout.astro"

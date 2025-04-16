@@ -1,13 +1,26 @@
 ---
-import ApplicationLayout from "@/layouts/index.ts"
+import ApplicationLayout from "@/layouts/application";
 import { Footer } from "@/includes/Footer/index.ts"
 import { Header } from "@/includes/Header/index.ts"
+import { Navigator } from "@/includes/Navigator/index.ts"
+
+import Head from "@/includes/Head"
+
+interface Props {
+  title?: string;
+  description?: string | null;
+  image?: string;
+  noindex?: boolean;
+  canonical?: string;
+}
+
 ---
 
 
 <ApplicationLayout>
-    <Header client:visible slot="header"/>
+    <Header slot="header" client:visible/>
+    <Navigator client:visible/>
     <slot />
-    <Footer client:visible slot="footer"/>
+    <Footer slot="footer" client:visible/>
 </ApplicationLayout>
 
