@@ -1,19 +1,7 @@
 ---
-/**
- * @pragma route
- * @description Dynamic route handler for Rotas using functional programming
- * @category contour.logos.opera
- */
-import { getPageData } from "@/routes/rotas";
-import { renderRoute } from "@/utils/renderer";
+import { generateContentPaths } from "@/modules/content-loader";
 import { flattenRoutes, routes } from "@/routes/routes";
-import BaseLayout from "@/views/Layout.astro";
-import { Pattern } from "@/modules/pattern";
-import { Flow } from "@/modules/flow";
-import type { Component, ComponentResult } from "@/types";
-import { generateContentPaths, getContentEntries } from "@/modules/content-loader";
 
-// Generate all possible route combinations at build time
 export async function getStaticPaths() {
   try {
     // Get all routes from the configuration
@@ -62,7 +50,6 @@ export async function getStaticPaths() {
     return combinedPaths;
   } catch (error) {
     console.error('Error generating static paths:', error);
-    // Return basic fallback routes even in case of error
     return [
       { params: { route: 'blog' }, props: { path: '/blog' } },
       { params: { route: 'tech' }, props: { path: '/tech' } },
@@ -70,141 +57,6 @@ export async function getStaticPaths() {
     ];
   }
 }
-
-// Extract route parameter directly from Astro.params
-const routePath = (() => {
-  const routeParam = Astro.params.route;
-  
-  // Ensure we're working with a string
-  if (!routeParam || typeof routeParam !== 'string') {
-    console.warn('[Route] Empty route parameter, defaulting to root');
-    return '/';
-  }
-  
-  // Normalize the path to ensure it starts with a slash and doesn't have trailing slashes
-  const normalizedPath = routeParam.startsWith('/') ? routeParam : `/${routeParam}`;
-  return normalizedPath.endsWith('/') && normalizedPath.length > 1 
-    ? normalizedPath.slice(0, -1) 
-    : normalizedPath;
-})();
-
-// Use the path from props if available, otherwise use the extracted route path
-const pagePath = Astro.props.path || routePath;
-
-// Log the resolved path for debugging
-console.log(`[Route] Resolved path: ${pagePath} (from ${Astro.props.path ? 'props' : 'params'})`);
-
-// Track if this is a content route
-const isContentRoute = pagePath.split('/').length > 2 && 
-  ['blog', 'tech', 'docs', 'tutorials'].includes(pagePath.split('/')[1]);
-
-// Get page data and necessary components
-const pageDataResult = await getPageData(pagePath);
-const { component, layout, props, meta: routeMeta, data, includes } = pageDataResult;
-
-// Create render result
-// Convert component to proper ComponentResult type with proper type safety
-let componentResult: ComponentResult;
-
-if (component) {
-  if (typeof component === 'string') {
-    // String component name
-    componentResult = { tag: 'ok', value: component };
-  } else if (typeof component === 'object' && 'tag' in component) {
-    // Check if it's a valid ComponentResult with proper structure
-    if (component.tag === 'ok' && 'value' in component) {
-      componentResult = { tag: 'ok', value: component.value };
-    } else if (component.tag === 'err' && 'error' in component) {
-      componentResult = { tag: 'err', error: component.error as Error };
-    } else {
-      // Invalid structure, create error result
-      componentResult = { 
-        tag: 'err', 
-        error: new Error(`Invalid component result structure: ${JSON.stringify(component)}`) 
-      };
-    }
-  } else {
-    // Component is an object but not a ComponentResult
-    // Safely cast to any to avoid TypeScript errors
-    componentResult = { tag: 'ok', value: component as any };
-  }
-} else {
-  // No component found, try to resolve a fallback component based on the route type
-  if (isContentRoute) {
-    // For content routes, use our generic content display component
-    console.log(`[Route] Using ContentDisplay fallback for content route: ${pagePath}`);
-    componentResult = { 
-      tag: 'ok', 
-      value: await import('../components/content/ContentDisplay.astro')
-    };
-  } else {
-    // For other routes, use our generic page component
-    console.log(`[Route] Using GenericPage fallback for route: ${pagePath}`);
-    componentResult = { 
-      tag: 'ok', 
-      value: await import('../components/pages/GenericPage.astro')
-    };
-  }
-}
-
-const result = await renderRoute(componentResult, layout, props, routeMeta, includes || {}, pagePath);
-const { component: resolvedComponent, layout: resolvedLayout, meta: resolvedMeta, includes: resolvedIncludes, props: resolvedProps } = result;
-
-// Prepare debug information in TOML format
-const getDebugName = (obj: any): string => {
-  if (!obj) return 'null';
-  if (typeof obj === 'string') return obj;
-  if (typeof obj === 'object' && 'name' in obj) return obj.name as string;
-  return 'Component';
-};
-
-// Helper to stringify values for TOML format
-const tomlString = (value: any): string => {
-  if (value === null || value === undefined) return 'null';
-  if (typeof value === 'string') return `"${value}"`;
-  if (Array.isArray(value)) return `[${value.map(v => tomlString(v)).join(', ')}]`;
-  if (typeof value === 'object') return 'object';
-  return String(value);
-};
-
-// Determine content type from path
-const getContentType = (path: string): string => {
-  const segments = path.split('/').filter(Boolean);
-  if (segments.length > 0) {
-    const firstSegment = segments[0];
-    if (['tech', 'blog', 'docs', 'tutorials', 'pages'].includes(firstSegment)) {
-      return firstSegment;
-    }
-  }
-  return 'page';
-};
-
-// Create more structured debug info in TOML format
-const debugInfo = {
-  path: pagePath,
-  meta: resolvedMeta,
-  props: resolvedProps, // Keep props for reference in templates
-  routeSource: Astro.params.route ? 'dynamic' : 'static',
-  contentType: getContentType(pagePath),
-  component: resolvedComponent?.tag === 'ok' ? getDebugName(resolvedComponent.value) : null,
-  includes: Object.keys(resolvedIncludes || {}),
-};
-
-// Format debug info as TOML for HTML display
-const tomlDebug = `[route]
-path = ${tomlString(pagePath)}
-contentType = ${tomlString(getContentType(pagePath))}
-routeSource = ${tomlString(Astro.params.route ? 'dynamic' : 'static')}
-
-[component]
-name = ${tomlString(resolvedComponent?.tag === 'ok' ? getDebugName(resolvedComponent.value) : null)}
-includes = ${tomlString(Object.keys(resolvedIncludes || {}))}
-
-[meta]
-${
-Object.entries(resolvedMeta || {}).map(([key, value]) => 
-  `${key} = ${tomlString(value)}`
-).join('\n')
-}`;
-
 ---
+
+
