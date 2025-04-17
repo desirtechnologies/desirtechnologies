@@ -1,0 +1,3 @@
+media: 
+ input: /www
+ output: /www/dist
