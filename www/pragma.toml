@@ -1,53 +1,18 @@
-# Models
-[models]
-_definition_ = "Models configuration"
-
-[models.assets]
- name =  "assets"
-[globals]
-_definition_ = "Global configuration"
-
-
-[[PRAGMA]]
-
-
-
-
-
-[globals.metadata]
+[metadata]
+name="Desir Technology"
 version = "0.0.1"
 author = "Jeffrey Jonathan Desir"
 date = "2025-04-05"
 
-[views.styles.theme]
-
-[controllers.runtime.astro]
-
-[models.data.collections]
 
 
 
-# Views
+[models]
+definition = "Models configuration"
+
+
 [views]
-_definition_ = "Views configuration"
-
-[views.components]
- _definition_ = "Components configuration"
-
-[views.styles]
- _definition_ = "Styles configuration"
-
-[views.styles.theme]
- _definition_ = "Theme configuration"
-
-[views.styles.theme.light]
- _definition_ = "Light theme configuration"
-
-[views.styles.theme.dark]
- _definition_ = "Dark theme configuration"
+definition = "Views configuration"
+ 
 
 [controllers]
-_definition_ = "Controllers configuration"
-
-[controllers.hooks.convention]
- style = "FUNCTION-VARIABLE binding"

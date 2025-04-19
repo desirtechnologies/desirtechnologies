@@ -1,7 +1,7 @@
 ---
 import ApplicationLayout from "@/layouts/application";
 import { Footer } from "@/includes/Footer/index.ts"
-import { Header } from "@/includes/Header/index.ts"
+import  Header  from "@/includes/Header/"
 import { Navigator } from "@/includes/Navigator/index.ts"
 
 import Head from "@/includes/Head"
@@ -14,13 +14,12 @@ interface Props {
   canonical?: string;
 }
 
+const { title, description, image, noindex, canonical } = Astro.props;
 ---
 
-
 <ApplicationLayout>
-    <Header slot="header" client:visible/>
-    <Navigator client:visible/>
+    <Header slot="header" />
+    <Navigator slot="navigator" />
     <slot />
-    <Footer slot="footer" client:visible/>
+    <Footer slot="footer" />
 </ApplicationLayout>
-

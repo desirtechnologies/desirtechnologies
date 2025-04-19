@@ -1,5 +1,13 @@
-
 node_modules
 .env
 public
-manifest/backend.db
+.env.dev
+.env.prod
+.env.local
+.env.example
+.env.test
+.env.staging
+.env.preview
+.env.production
+.env.development
+.env

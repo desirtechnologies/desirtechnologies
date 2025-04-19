@@ -1,7 +1,6 @@
 
 <h1 align="center"> Desir Technology</h1>
 <p align="center">✨ Through understanding, Knowledge determines destiny.</p>
-
 <div align="center">
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/desirtechnology)
@@ -101,18 +100,6 @@ npm install @astropub/code
   <p>Quality you can see</p>
 </div>
 
-<h2 align="left">💪 Why Choose Me? 💪</h2>
-
-<div align="left">
-  <p>✨ I deliver when you need... ✨</p>
-  
-  <p>👥 A tech wizard who speaks human</p>
-  <p>💡 <strong>Fresh Ideas</strong> - Cutting-edge tech that works</p>
-  <p>🤝 <strong>Your Success = My Success</strong> - I'm in this with you</p>
-  <p>⭐ <strong>Quality Obsessed</strong> - I don't do "good enough"</p>
-  <p>📈 <strong>Future-Ready Solutions</strong> - Grow without growing pains</p>
-</div>
-
 <h2 align="center">📞 Get In Touch</h2>
 
 <div align="center">
@@ -138,3 +125,6 @@ npm install @astropub/code
 <div align="center">
   Made with ❤️ by Jeffrey Jonathan Desir.
 </div>
+
+
+<p align="center"><i>Algorithmus preferentus!</i></p>
