@@ -1,7 +1,12 @@
 ---
 import { Layout } from "@/layouts";
+import type { LayoutType } from "@/layouts/layout/Layout.astro";
 
-const layout = "default";
+export interface Props {
+  layout: string;
+}
+
+
 ---
 
-<Layout layout={layout}/>
+<Layout layout={"default" as LayoutType}/>

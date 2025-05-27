@@ -1,0 +1,19 @@
+# PRAGMA: Defines the "WHAT" of a module - identity and context
+# Purpose: Provides metadata and contextual information about the module
+# In the linguistic analogy: Represents the grammatical structure/environment (G)
+
+[meta]
+name = "Desir Technology"
+version = "0.0.1"
+author = "Jeffrey Jonathan Desir"
+date = "2025-04-05"
+
+[context]
+# Contextual information helps LLMs understand the module's purpose and scope
+description = "Core technology platform for Desir Technology solutions"
+domain = "enterprise-software"
+target_audience = "developers"
+
+[dependencies]
+# List of other modules this module depends on
+# format = "module_name = version"

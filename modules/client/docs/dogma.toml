@@ -1,0 +1,51 @@
+# DOGMA: Defines the "WHY" of a module - principles and constraints
+# Purpose: Establishes rules, validation constraints, and operational principles
+# In the linguistic analogy: Represents the production rules (Pr)
+
+[rules]
+# Core business rules that govern the module's behavior
+
+[[rules.core]]
+name = "data_integrity"
+description = "All data must be validated before storage"
+priority = 1
+enforcement = "strict"
+
+[[rules.core]]
+name = "authentication"
+description = "All API endpoints require authentication"
+priority = 1
+exceptions = ["health", "status"]
+
+[[rules.core]]
+name = "error_handling"
+description = "All errors must be logged and properly handled"
+priority = 2
+
+[constraints]
+# Limitations and boundaries of the module
+
+[constraints.performance]
+max_response_time_ms = 200
+max_memory_usage_mb = 512
+max_concurrent_requests = 1000
+
+[constraints.security]
+require_https = true
+min_password_length = 12
+require_mfa = true
+
+[principles]
+# Guiding principles for development and operation
+
+[[principles.design]]
+name = "modularity"
+description = "System should be composed of independent, interchangeable modules"
+
+[[principles.design]]
+name = "simplicity"
+description = "Prefer simple solutions over complex ones"
+
+[[principles.operation]]
+name = "observability"
+description = "All system actions should be traceable and measurable"

@@ -1,6 +1,6 @@
 ---
 import ApplicationLayout from "@/layouts/application";
-import { Footer } from "@/includes/Footer/index.ts"
+import Footer from "@/includes/Footer/index.ts"
 import  Header  from "@/includes/Header/"
 import { Navigator } from "@/includes/Navigator/index.ts"
 
@@ -20,6 +20,6 @@ const { title, description, image, noindex, canonical } = Astro.props;
 <ApplicationLayout>
     <Header slot="header" />
     <Navigator slot="navigator" />
-    <slot />
+    <slot slot="content"/>
     <Footer slot="footer" />
 </ApplicationLayout>

@@ -1,0 +1,69 @@
+# SCHEMA: Defines the "HOW" of a module - structure and implementation
+# Purpose: Establishes data models, type definitions, and relationships
+# In the linguistic analogy: Represents the sentence/content structure (S)
+
+[models]
+# Data models that define the structure of entities in the system
+
+[models.User]
+description = "User account in the system"
+
+[models.User.properties]
+id = { type = "string", format = "uuid", required = true }
+name = { type = "string", max_length = 100, required = true }
+email = { type = "string", format = "email", required = true, unique = true }
+password = { type = "string", min_length = 12, required = true, sensitive = true }
+created_at = { type = "datetime", default = "now()" }
+updated_at = { type = "datetime", default = "now()", on_update = "now()" }
+
+[models.User.relationships]
+posts = { type = "hasMany", model = "Post", foreign_key = "author_id" }
+profile = { type = "hasOne", model = "Profile", foreign_key = "user_id" }
+
+[models.Post]
+description = "Content created by users"
+
+[models.Post.properties]
+id = { type = "string", format = "uuid", required = true }
+title = { type = "string", max_length = 200, required = true }
+content = { type = "text", required = true }
+author_id = { type = "string", format = "uuid", required = true }
+published = { type = "boolean", default = false }
+published_at = { type = "datetime", nullable = true }
+created_at = { type = "datetime", default = "now()" }
+updated_at = { type = "datetime", default = "now()", on_update = "now()" }
+
+[models.Post.relationships]
+author = { type = "belongsTo", model = "User", foreign_key = "author_id" }
+comments = { type = "hasMany", model = "Comment", foreign_key = "post_id" }
+tags = { type = "manyToMany", model = "Tag", pivot = "post_tags" }
+
+[models.Profile]
+description = "Extended user information"
+
+[models.Profile.properties]
+id = { type = "string", format = "uuid", required = true }
+user_id = { type = "string", format = "uuid", required = true, unique = true }
+bio = { type = "text", nullable = true }
+avatar_url = { type = "string", format = "url", nullable = true }
+website = { type = "string", format = "url", nullable = true }
+created_at = { type = "datetime", default = "now()" }
+updated_at = { type = "datetime", default = "now()", on_update = "now()" }
+
+[models.Profile.relationships]
+user = { type = "belongsTo", model = "User", foreign_key = "user_id" }
+
+[types]
+# Custom type definitions used across the system
+
+[types.UUID]
+description = "Universally Unique Identifier"
+format = "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+
+[types.Email]
+description = "Email address format"
+format = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+
+[types.URL]
+description = "Web URL format"
+format = "^https?://(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&//=]*)$"

@@ -24,7 +24,7 @@ Allow: /images/
 Allow: /css/
 Allow: /js/
 
-Sitemap: https://www.desirtechnologies.pro/sitemap-index.xml
+Sitemap: https://app.desirtechnologies.pro/sitemap-index.xml
 
 Crawl-delay: 10
 # Google Adsense

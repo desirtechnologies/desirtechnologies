@@ -1,0 +1,81 @@
+[meta]
+description = "Hierarchical, word-net-like taxonomy of reverse prompts for optimal usage of Windsurf features. Designed for both human and AI consumption."
+purpose = "Enable sophisticated, context-aware prompt selection and feature discovery for Windsurf-powered workflows."
+
+[domains.Deployment]
+description = "Features and actions related to deploying applications and sites."
+[[domains.Deployment.actions]]
+name = "deploy_site"
+synonyms = ["publish", "launch", "release", "go live"]
+description = "Deploy a new or updated site/application."
+subtypes = ["deploy_static_site", "deploy_dynamic_app"]
+examples = [
+  "Deploy the latest version of the documentation site.",
+  "Publish the Astro app to production."
+]
+related = ["rollback_deployment", "view_deployment_status"]
+
+[[domains.Deployment.actions]]
+name = "rollback_deployment"
+synonyms = ["revert", "undo deployment"]
+description = "Revert a deployment to a previous state."
+examples = [
+  "Rollback the site to the previous stable version.",
+  "Undo the last deployment."
+]
+related = ["deploy_site", "view_deployment_status"]
+
+[[domains.Deployment.actions]]
+name = "view_deployment_status"
+synonyms = ["deployment health", "deployment logs", "deployment state"]
+description = "Check the status or health of a deployment."
+examples = [
+  "Show the status of the last deployment.",
+  "View deployment logs for errors."
+]
+related = ["deploy_site", "rollback_deployment"]
+
+[domains.Monitoring]
+description = "Monitoring and analytics features."
+[[domains.Monitoring.actions]]
+name = "view_metrics"
+synonyms = ["analytics", "usage stats", "performance metrics"]
+description = "View real-time or historical metrics for deployed projects."
+subtypes = ["view_error_rates", "view_traffic"]
+examples = [
+  "Show me the traffic analytics for the last week.",
+  "Display error rates for the production deployment."
+]
+related = ["set_alert", "view_logs"]
+
+[[domains.Monitoring.actions]]
+name = "set_alert"
+synonyms = ["create alert", "monitor threshold"]
+description = "Set up an alert for specific metrics or events."
+examples = [
+  "Alert me if CPU usage exceeds 80%.",
+  "Notify on deployment failure."
+]
+related = ["view_metrics", "view_logs"]
+
+[domains.Collaboration]
+description = "Collaboration and team features."
+[[domains.Collaboration.actions]]
+name = "invite_collaborator"
+synonyms = ["add user", "share access", "grant permission"]
+description = "Invite a new collaborator to a project or workspace."
+examples = [
+  "Invite Alice to the project.",
+  "Add a new team member to the deployment group."
+]
+related = ["set_permissions", "view_collaborators"]
+
+[[domains.Collaboration.actions]]
+name = "set_permissions"
+synonyms = ["change access", "modify permissions"]
+description = "Configure access levels for collaborators."
+examples = [
+  "Set Bob as a read-only user.",
+  "Grant admin rights to Carol."
+]
+related = ["invite_collaborator", "view_collaborators"]

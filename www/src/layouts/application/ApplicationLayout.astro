@@ -30,7 +30,8 @@ const { title, description, image, noindex, canonical } = Astro.props
 
 <body>
   <slot name="header" />
-  <slot />
+  <slot name="content"/>
+  <slot name="navigator"/>
   <slot name="footer" />
 </body>
 
