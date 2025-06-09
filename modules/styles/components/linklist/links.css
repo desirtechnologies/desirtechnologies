@@ -1,0 +1,64 @@
+/* Icon definitions for navigation links */
+.sidebar__navigation-link[href="/"]::before {
+  content: "🏠" !important;
+}
+
+.sidebar__navigation-link[href="/pages/me"]::before {
+  content: "👤" !important;
+}
+
+.sidebar__navigation-link[href="/pages/services"]::before {
+  content: "🛠️" !important;
+}
+
+.sidebar__navigation-link[href="/pages/projects"]::before {
+  content: "📁" !important;
+}
+
+.sidebar__navigation-link[href="/pages/resources"]::before {
+  content: "📚" !important;
+}
+
+.sidebar__navigation-link[href="/pages/contact"]::before {
+  content: "📧" !important;
+}
+
+.sidebar__navigation-link[href="/pages/meta"]::before {
+  content: "📄" !important;
+}
+
+.sidebar__navigation-link[href="/pages/support"]::before {
+  content: "💬" !important;
+}
+
+.sidebar__navigation-link[href="/pages/publication"]::before {
+  content: "📰" !important;
+}
+
+.sidebar__navigation-link[href="/pages/arepo"]::before {
+  content: "🔍" !important;
+}
+
+.sidebar__navigation-link[href="/pages/art"]::before {
+  content: "🎨" !important;
+}
+
+.sidebar__navigation-link[href="/collections/all"]::before {
+  content: "🛒" !important;
+}
+
+.sidebar__navigation-link[href="/pages/hominibus"]::before {
+  content: "👥" !important;
+}
+
+.sidebar__navigation-link[href="/pages/hominibus"]::before {
+  content: "👥" !important;
+}
+
+.sidebar__navigation-link[href="/pages/news"]::before {
+  content: "" !important;
+}
+
+.sidebar__navigation-link[href="/supporters"]::before {
+  content: "🔒" !important;
+}

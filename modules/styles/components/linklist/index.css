@@ -1,0 +1,28 @@
+@supports (backdrop-filter: blur(0px)) {
+  p {
+    font-size: 1.5em;
+  }
+
+  .button {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+
+    background-image: linear-gradient(
+      135deg,
+      rgba(8, 128, 0, 0.2),
+      rgba(8, 128, 0, 0.5)
+    );
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    transition: background-position 1.5s ease;
+    border: 1px solid rgba(8, 128, 0, 0.5);
+    box-shadow: 0 0 10px rgba(8, 128, 0, 0.5);
+    &:hover {
+      transition: all 0.67s ease-in-out;
+      border: 1px solid rgba(255, 250, 255, 0.69);
+
+      background-position: 100% 100%;
+      box-shadow: 0 0 20px rgba(8, 128, 0, 0.5);
+    }
+  }
+}

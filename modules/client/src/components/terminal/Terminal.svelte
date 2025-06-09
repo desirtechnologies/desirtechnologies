@@ -164,7 +164,6 @@
   });
 </script>
 
-<!-- Use button instead of div for accessibility compliance -->
 <button 
   id="jarveis-terminal" 
   class="matrix-terminal"
