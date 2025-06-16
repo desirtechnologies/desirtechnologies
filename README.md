@@ -1,6 +1,4 @@
-<div align="center">
 # Desir Technology
-</div>
 
 <div align="center" style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px 0;">
   <span style="margin: 5px 15px;">✨ <strong>THROUGH UNDERSTANDING</strong></span>

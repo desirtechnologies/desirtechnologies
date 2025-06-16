@@ -1,0 +1,26 @@
+@supports (backdrop-filter: blur(0px)) {
+  h1 {
+    --blur: 10px;
+    border-radius: 100em;
+    backdrop-filter: blur(var(--blur));
+  }
+
+  .button {
+    font-size: 1.3em;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #080;
+    backdrop-filter: blur(var(--blur));
+
+    &:hover {
+      transition: all 0.67s ease-in-out;
+      border: 1px solid rgba(255, 250, 255, 0.69);
+
+      background-position: 100% 100%;
+      box-shadow: 0 0 20px rgba(8, 128, 0, 0.5);
+    }
+  }
+}
+
+p {
+  font-size: 1.67em;
+}
