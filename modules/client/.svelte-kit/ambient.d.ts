@@ -42,6 +42,8 @@ declare module '$env/static/private' {
 	export const CHROME_DESKTOP: string;
 	export const TERM_PROGRAM_VERSION: string;
 	export const DESKTOP_SESSION: string;
+	export const NVM_BIN: string;
+	export const NVM_INC: string;
 	export const GTK_MODULES: string;
 	export const XDG_SEAT_PATH: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
@@ -51,6 +53,7 @@ declare module '$env/static/private' {
 	export const DBUS_SESSION_BUS_ADDRESS: string;
 	export const COLORTERM: string;
 	export const GIO_LAUNCHED_DESKTOP_FILE_PID: string;
+	export const NVM_DIR: string;
 	export const LOGNAME: string;
 	export const _: string;
 	export const XDG_SESSION_CLASS: string;
@@ -101,6 +104,7 @@ declare module '$env/static/private' {
 	export const XDG_VTNR: string;
 	export const PWD: string;
 	export const npm_execpath: string;
+	export const NVM_CD_FLAGS: string;
 	export const XDG_DATA_DIRS: string;
 	export const LC_NUMERIC: string;
 	export const npm_command: string;
@@ -158,6 +162,8 @@ declare module '$env/dynamic/private' {
 		CHROME_DESKTOP: string;
 		TERM_PROGRAM_VERSION: string;
 		DESKTOP_SESSION: string;
+		NVM_BIN: string;
+		NVM_INC: string;
 		GTK_MODULES: string;
 		XDG_SEAT_PATH: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
@@ -167,6 +173,7 @@ declare module '$env/dynamic/private' {
 		DBUS_SESSION_BUS_ADDRESS: string;
 		COLORTERM: string;
 		GIO_LAUNCHED_DESKTOP_FILE_PID: string;
+		NVM_DIR: string;
 		LOGNAME: string;
 		_: string;
 		XDG_SESSION_CLASS: string;
@@ -217,6 +224,7 @@ declare module '$env/dynamic/private' {
 		XDG_VTNR: string;
 		PWD: string;
 		npm_execpath: string;
+		NVM_CD_FLAGS: string;
 		XDG_DATA_DIRS: string;
 		LC_NUMERIC: string;
 		npm_command: string;
