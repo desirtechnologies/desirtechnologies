@@ -1,6 +1,6 @@
 {
   "name": "desirtechnology",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Desire Technology with Rotas routing system",
   "main": "build/gulpfile.js",
   "scripts": {
@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "keywords": [
-    "astro",
-    "rotas",
-    "routing",
-    "contour"
+    "heal",
+    "the",
+    "world",
+    "technomancy"
   ],
-  "author": "Jeffrey Jonathan Desir",
-  "license": "MIT"
+  "author": "Arepo Desir",
+  "license": "UNLICENSED"
 }
