@@ -74,6 +74,9 @@ importers:
       katex:
         specifier: ^0.16.22
         version: 0.16.22
+      lucide-svelte:
+        specifier: ^0.515.0
+        version: 0.515.0(svelte@5.34.3)
       markdown-it:
         specifier: ^14.1.0
         version: 14.1.0
@@ -3321,6 +3324,11 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  lucide-svelte@0.515.0:
+    resolution: {integrity: sha512-uJfdXnbl2EJ6dhopBAJoRkshuulb1G6bVq1AXgu9j7cH/8CvWj3hXmRYGzehWYX+bwbUQURORIVYcIfpdaHcSA==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
 
   magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
@@ -8808,6 +8816,10 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lucide-svelte@0.515.0(svelte@5.34.3):
+    dependencies:
+      svelte: 5.34.3
 
   magic-string@0.25.9:
     dependencies:
