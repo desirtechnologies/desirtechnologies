@@ -1,0 +1,54 @@
+* {
+  --NOTHING: 0px;
+  --blur: 10px;
+  --glass: rgba(0, 0, 0, 0.5);
+  --border: 1px solid white;
+  --shadow: 0 0 20px rgba(8, 128, 0, 0.5);
+  --hover: rgba(255, 250, 255, 0.69);
+  --hover-border: 1px solid rgba(255, 250, 255, 0.69);
+  --hover-shadow: 0 0 20px rgba(8, 128, 0, 0.5);
+  --hover-gradient: linear-gradient(
+    135deg,
+    rgba(8, 128, 0, 0.2),
+    rgba(8, 128, 0, 0.5)
+  );
+  --hover-gradient-position: 100% 100%;
+  --hover-gradient-size: 200% 200%;
+  --hover-gradient-transition: background-position 1.5s ease;
+  --hover-gradient-position: 100% 100%;
+  --text: 1.33em;
+
+  -user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@supports (backdrop-filter: blur(var(--NOTHING))) {
+  .donations {
+    backdrop-filter: blur(var(--blur));
+    border-top: var(--border);
+  }
+
+  .button {
+    backdrop-filter: blur(var(--blur));
+    background-color: var(--glass);
+    border: var(--border);
+    background-image: var(--hover-gradient);
+    background-size: var(--hover-gradient-size);
+    background-position: var(--hover-gradient-position);
+    transition: background-position 1.5s ease;
+
+    &:hover {
+      transition: all 0.67s ease-in-out;
+      border: var(--hover-border);
+      background-position: var(--hover-gradient-position);
+      box-shadow: var(--hover-shadow);
+    }
+  }
+}
+
+p {
+  font-size: var(--text);
+}

@@ -1,0 +1,41 @@
+* {
+  user-select: none;
+
+  -webkit-user-select: none;
+
+  --NOTHING: 0px;
+
+  --blur: 10px;
+  --text: 1.33em;
+  --technomancy: #080;
+  --glass: rgba(0, 0, 0, 0.5);
+  --border: 1px solid #080;
+  --shadow: 0 0 10px rgba(8, 128, 0, 0.5);
+}
+
+@supports (backdrop-filter: blur(var(--NOTHING))) {
+  .button {
+    font-size: var(--text);
+    background-color: var(--glass);
+    border: var(--border);
+    backdrop-filter: blur(var(--blur));
+
+    &:hover {
+      animation: neon 2s ease-in-out infinite alternate;
+    }
+  }
+}
+
+p {
+  font-size: var(--text);
+}
+
+@keyframes neon {
+  0% {
+    border-color: rgba(8, 128, 0, 0.5);
+  }
+  100% {
+    border-color: rgba(8, 128, 0, 0.8);
+    box-shadow: var(--shadow);
+  }
+}

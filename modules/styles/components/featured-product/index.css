@@ -1,0 +1,32 @@
+* {
+  --glass: rgba(0, 0, 0, 0.5);
+  --blur: 10px;
+  --NOTHING: 0px;
+  --border: 1px solid white;
+}
+
+@supports (backdrop-filter: blur(var(--NOTHING))) {
+  .featured-product {
+    animation: animate-spacey-backdrop 2s linear infinite;
+
+    transition: all 0.67s ease-in-out;
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border-top: var(--border);
+  }
+}
+
+p {
+  font-size: 1.33em;
+}
+
+@keyframes animate-spacey-backdrop {
+  0% {
+    backdrop-filter: blur(6px) hue-rotate(0deg);
+    -webkit-backdrop-filter: blur(6px) hue-rotate(0deg);
+  }
+  100% {
+    backdrop-filter: blur(6px) hue-rotate(360deg);
+    -webkit-backdrop-filter: blur(6px) hue-rotate(360deg);
+  }
+}

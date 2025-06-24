@@ -1,5 +1,4 @@
 <h1 align="center">Desir Technologies</h1>
-:sparkles: emoji
 
 <p align="center">Weaving logic into light.</p>
 
@@ -14,6 +13,8 @@
 ## docs/\*
 
 ## modules/\*
+
+## .{\*}/\*
 
 ## � License
 
@@ -32,3 +33,4 @@ Unlicensed — open, free, attribution encouraged
 Made with ❤️ by **Arepo** for [posterity](https://whoisarepo.fyi).
 
 </p>
+mf 11am 7pm

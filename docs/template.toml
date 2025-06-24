@@ -1,11 +1,15 @@
-[[section]]
-title = "Section"
-content = "Content"
+[config]
+ path = "./assets"
+
 
 [[section]]
-title = "Section"
-content = "Content"
+title = "Header"
+content = "" # defaults to FILE.md
 
 [[section]]
-title = "Section"
-content = "Content"
+title = "Footer"
+content = "" # defaults to FILE.md
+
+[[section]]
+title = "Attributions"
+content = "" # defaults to FILE.md

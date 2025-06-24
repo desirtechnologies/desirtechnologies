@@ -1,0 +1,18 @@
+* {
+  --glass: rgba(0, 0, 0, 0.5);
+  --blur: 10px;
+  --NOTHING: 0px;
+  --border: 1px solid white;
+}
+
+@supports (backdrop-filter: blur(var(--NOTHING))) {
+  .collections-list {
+    transition: all 0.67s ease-in-out;
+    backdrop-filter: blur(var(--blur));
+    border-top: var(--border);
+  }
+}
+
+p {
+  font-size: 1.33em;
+}

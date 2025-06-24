@@ -1,0 +1,15 @@
+* {
+  --glass-effect-blur: 7px;
+}
+
+@supports (backdrop-filter: blur(var(--glass-effect-blur))) {
+  .glass {
+    backdrop-filter: blur(var(--glass-effect-blur)) !important;
+    -webkit-backdrop-filter: blur(var(--glass-effect-blur)) !important;
+    -moz-backdrop-filter: blur(var(--glass-effect-blur)) !important;
+    -ms-backdrop-filter: blur(var(--glass-effect-blur)) !important;
+    -o-backdrop-filter: blur(var(--glass-effect-blur)) !important;
+    -s-backdrop-filter: blur(var(--glass-effect-blur)) !important;
+    -khtml-backdrop-filter: blur(var(--glass-effect-blur)) !important;
+  }
+}

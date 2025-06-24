@@ -1,0 +1,20 @@
+* {
+  --glass: rgba(0, 0, 0, 0.5);
+  --blur: 10px;
+  --NOTHING: 0px;
+  --border: 1px solid white;
+}
+
+@supports (backdrop-filter: blur(var(--NOTHING))) {
+  .button {
+    backdrop-filter: blur(var(--blur));
+    background-color: var(--glass);
+    border: var(--border);
+  }
+
+  .tiers {
+    border-top: var(--border);
+    backdrop-filter: blur(var(--blur));
+    background-color: var(--glass);
+  }
+}

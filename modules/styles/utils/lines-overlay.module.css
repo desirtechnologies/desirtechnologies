@@ -1,0 +1,56 @@
+* {
+  --lines-overlay-color: rgba(0, 255, 70, 0.1);
+  --lines-overlay-opacity: 0.3;
+  --lines-overlay-size: 10px;
+  --animation-config: 5s infinite linear;
+}
+
+&::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: repeating-linear-gradient(
+    0deg,
+    var(--lines-overlay-color) 0,
+    var(--lines-overlay-color) 1px,
+    transparent 1px,
+    transparent 2px
+  ) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  opacity: var(--lines-overlay-opacity) !important;
+  animation: scanline var(--animation-config) !important;
+}
+
+&::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--lines-overlay-color) 0px,
+    var(--lines-overlay-color) 1px,
+    transparent 1px,
+    transparent 3px
+  ) !important;
+  background-size: var(--lines-overlay-size) 100% !important;
+  opacity: var(--lines-overlay-opacity) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  animation: scanline var(--animation-config) !important;
+}
+
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
